@@ -13,7 +13,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
+* {
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
 html {
   scroll-behavior:smooth;
@@ -30,7 +34,8 @@ body {
 
 a { color:inherit; }
 
-/* FIRST-VISIT WELCOME NOTE */
+/* WELCOME NOTE */
+
 .welcome-note {
   position:fixed;
   inset:0;
@@ -107,6 +112,7 @@ a { color:inherit; }
 }
 
 /* HEADER */
+
 header {
   min-height:90vh;
   display:flex;
@@ -142,6 +148,7 @@ header p {
 }
 
 /* NAVIGATION */
+
 nav {
   position:sticky;
   top:0;
@@ -166,6 +173,7 @@ nav a {
 nav a:hover { color:white; }
 
 /* SECTIONS */
+
 section {
   padding:85px 8%;
   text-align:center;
@@ -185,7 +193,12 @@ section {
   margin:15px 0 45px;
 }
 
-.intro { max-width:780px; margin:auto; }
+/* HOME */
+
+.intro {
+  max-width:780px;
+  margin:auto;
+}
 
 .intro p {
   color:#d8c9bb;
@@ -202,6 +215,7 @@ section {
 }
 
 /* PHOTO GRID */
+
 .gallery {
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
@@ -231,7 +245,9 @@ section {
 .photo:hover img { transform:scale(1.035); }
 
 .kimtuyen-photo img,
-.daq-photo img { object-position:center 20%; }
+.daq-photo img {
+  object-position:center 20%;
+}
 
 .couple-photo {
   grid-column:span 2;
@@ -258,6 +274,7 @@ section {
 }
 
 /* ALBUM CARDS */
+
 .album-grid {
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
@@ -314,6 +331,7 @@ section {
 }
 
 /* ALBUM DETAIL */
+
 .album-detail {
   display:none;
   max-width:1100px;
@@ -355,60 +373,57 @@ section {
 }
 
 /* OUR HEARTS */
+
 .fan-section {
-  background: #21171c;
-  border-top: 1px solid rgba(128,100,72,.3);
-  border-bottom: 1px solid rgba(128,100,72,.3);
+  background:#21171c;
+  border-top:1px solid rgba(128,100,72,.3);
+  border-bottom:1px solid rgba(128,100,72,.3);
 }
 
 .fan-note {
-  max-width: 700px;
-  margin: 0 auto 35px;
-  color: #d8c9bb;
-  font-size: 13px;
-  line-height: 1.8;
+  max-width:700px;
+  margin:0 auto 35px;
+  color:#d8c9bb;
+  font-size:13px;
+  line-height:1.8;
 }
 
 .fan-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 25px;
-  max-width: 1000px;
-  margin: auto;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:25px;
+  max-width:1000px;
+  margin:auto;
 }
 
 .fan-item {
-  overflow: hidden;
-  background: #171014;
-  border: 1px solid rgba(128,100,72,.35);
-  border-radius: 5px;
+  overflow:hidden;
+  background:#171014;
+  border:1px solid rgba(128,100,72,.35);
+  border-radius:5px;
 }
 
 .fan-item img,
 .fan-item video {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  background: #100c0f;
+  display:block;
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  background:#100c0f;
 }
+
+.fan-item img { cursor:pointer; }
 
 .fan-caption {
-  padding: 13px 15px;
-  color: #e8c995;
-  font-size: 12px;
-  letter-spacing: .5px;
-  text-align: center;
-}
-
-@media (max-width: 600px) {
-  .fan-grid {
-    grid-template-columns: 1fr;
-    gap: 18px;
-  }
+  padding:13px 15px;
+  color:#e8c995;
+  font-size:12px;
+  letter-spacing:.5px;
+  text-align:center;
 }
 
 /* OUR JOURNEY */
+
 .journey-section {
   background:#1d1419;
 }
@@ -479,16 +494,8 @@ section {
   line-height:1.9;
 }
 
-.journey-content a {
-  display:inline-block;
-  margin-top:12px;
-  color:#e8c995;
-  font-size:11px;
-  text-decoration:none;
-  border-bottom:1px solid #806448;
-}
-
 /* VIDEO MOMENTS */
+
 .video-section {
   background:#21171c;
 }
@@ -511,12 +518,14 @@ section {
 .video-card iframe {
   display:block;
   width:100%;
-  aspect-ratio:9 / 16;
+  aspect-ratio:9/16;
   border:0;
   background:#171014;
 }
 
-.video-info { padding:18px 20px 22px; }
+.video-info {
+  padding:18px 20px 22px;
+}
 
 .video-info h3 {
   color:#e8c995;
@@ -549,7 +558,8 @@ section {
   max-width:650px;
 }
 
-/* FIRST-VISIT MUSIC INVITATION */
+/* MUSIC INVITATION */
+
 .music-welcome {
   position:fixed;
   inset:0;
@@ -621,7 +631,8 @@ section {
   cursor:pointer;
 }
 
-/* FLOATING MP3 MUSIC PLAYLIST */
+/* MUSIC PLAYER */
+
 .music-player {
   position:fixed;
   right:22px;
@@ -645,6 +656,14 @@ section {
   color:#e8c995;
   font-size:10px;
   letter-spacing:1px;
+}
+
+.music-player-close {
+  border:0;
+  background:transparent;
+  color:#e8c995;
+  font-size:23px;
+  cursor:pointer;
 }
 
 .playlist-song {
@@ -680,9 +699,21 @@ section {
   flex:1;
 }
 
-.song-title { color:#e8c995; font-size:11px; }
-.song-subtitle { color:#bca993; font-size:9px; margin-top:2px; }
-.song-play-icon { color:#e8c995; font-size:13px; }
+.song-title {
+  color:#e8c995;
+  font-size:11px;
+}
+
+.song-subtitle {
+  color:#bca993;
+  font-size:9px;
+  margin-top:2px;
+}
+
+.song-play-icon {
+  color:#e8c995;
+  font-size:13px;
+}
 
 .music-player-toggle {
   position:fixed;
@@ -713,6 +744,7 @@ section {
 }
 
 /* LETTERS */
+
 .letter-card {
   max-width:720px;
   margin:22px auto;
@@ -753,6 +785,7 @@ section {
 }
 
 /* FOOTER */
+
 footer {
   padding:38px 20px;
   text-align:center;
@@ -768,6 +801,7 @@ footer p + p {
 }
 
 /* LIGHTBOX */
+
 .lightbox {
   display:none;
   position:fixed;
@@ -799,6 +833,7 @@ footer p + p {
 }
 
 /* MOBILE */
+
 @media (max-width:900px) {
   .video-grid {
     grid-template-columns:repeat(2,minmax(0,1fr));
@@ -806,6 +841,7 @@ footer p + p {
 }
 
 @media (max-width:600px) {
+
   .welcome-note-card { padding:32px 22px; }
   .welcome-note-card h2 { font-size:25px; }
   .welcome-note-card p { font-size:13px; }
@@ -874,17 +910,14 @@ footer p + p {
   }
 
   .journey-content { padding:17px 15px; }
-
   .journey-content::before { left:-42px; }
-
   .journey-content h3 { font-size:15px; }
-
   .journey-content p { font-size:12px; }
 
   .music-player {
     right:12px;
     bottom:68px;
-    width:min(290px, calc(100vw - 24px));
+    width:min(290px,calc(100vw - 24px));
   }
 
   .music-player-toggle {
@@ -897,7 +930,8 @@ footer p + p {
 
 <body>
 
-<!-- FIRST-VISIT WELCOME NOTE -->
+<!-- WELCOME NOTE -->
+
 <div class="welcome-note" id="welcomeNote">
   <div class="welcome-note-card">
     <div class="welcome-note-kicker">A LITTLE WORLD OF US ♡</div>
@@ -909,7 +943,8 @@ footer p + p {
   </div>
 </div>
 
-<!-- FIRST-VISIT MUSIC INVITATION -->
+<!-- MUSIC INVITATION -->
+
 <div class="music-welcome hidden" id="musicWelcome">
   <div class="music-welcome-card">
     <div class="music-welcome-kicker">A LITTLE WORLD OF US</div>
@@ -921,6 +956,7 @@ footer p + p {
 </div>
 
 <!-- HEADER -->
+
 <header>
   <h1>A Little World of Us</h1>
   <p>A LITTLE SPACE MADE WITH LOVE</p>
@@ -928,6 +964,7 @@ footer p + p {
 </header>
 
 <!-- NAVIGATION -->
+
 <nav>
   <a href="#home">HOME</a>
   <a href="#gallery">GALLERY</a>
@@ -938,18 +975,24 @@ footer p + p {
 </nav>
 
 <!-- HOME -->
+
 <section id="home">
+
   <div class="intro">
     <h2 class="section-title">Welcome to Our Little World</h2>
+
     <p class="section-subtitle">
       A little corner dedicated to Kim Tuyến & Đồng Ánh Quỳnh
     </p>
+
     <div class="intro-divider"></div>
+
     <p>
       Some moments deserve to be remembered,
       some stories deserve to be told,
       and some people make the world a little more beautiful.
     </p>
+
     <p>
       This little space is made with love,
       celebrating the beautiful moments, memories
@@ -957,7 +1000,8 @@ footer p + p {
     </p>
   </div>
 
-  <!-- HOME PHOTOS: KEEP 2-2-2 -->
+  <!-- HOME PHOTOS: 2-2-2 -->
+
   <div class="gallery" style="margin-top:50px;">
 
     <div class="photo solo-photo kimtuyen-photo">
@@ -993,12 +1037,15 @@ footer p + p {
   </div>
 </section>
 
-<!-- GALLERY ALBUMS -->
+<!-- GALLERY -->
+
 <section id="gallery">
+
   <h2 class="section-title">Our Gallery</h2>
   <p class="section-subtitle">A collection of moments we treasure</p>
 
   <!-- ALBUM LIST -->
+
   <div id="albumList" class="album-grid">
 
     <div class="album-card" onclick="openAlbum('kimtuyenAlbum')">
@@ -1017,7 +1064,7 @@ footer p + p {
       </div>
     </div>
 
-    <div class="album-card" onclick="openAlbum('coupleAlbum')" style="grid-column:1 / -1;">
+    <div class="album-card" onclick="openAlbum('coupleAlbum')" style="grid-column:1/-1;">
       <img src="images/couple1.jpg" alt="Together album">
       <div class="album-info">
         <h3>Together</h3>
@@ -1028,7 +1075,9 @@ footer p + p {
   </div>
 
   <!-- KIM TUYEN ALBUM -->
+
   <div id="kimtuyenAlbum" class="album-detail">
+
     <button class="back-button" onclick="backToAlbums()">← BACK TO ALBUMS</button>
 
     <div class="album-heading">
@@ -1052,7 +1101,9 @@ footer p + p {
   </div>
 
   <!-- DONG ANH QUYNH ALBUM -->
+
   <div id="daqAlbum" class="album-detail">
+
     <button class="back-button" onclick="backToAlbums()">← BACK TO ALBUMS</button>
 
     <div class="album-heading">
@@ -1076,7 +1127,9 @@ footer p + p {
   </div>
 
   <!-- COUPLE ALBUM -->
+
   <div id="coupleAlbum" class="album-detail">
+
     <button class="back-button" onclick="backToAlbums()">← BACK TO ALBUMS</button>
 
     <div class="album-heading">
@@ -1099,181 +1152,14 @@ footer p + p {
     </div>
   </div>
 
-// AUTOMATICALLY ADD GALLERY PHOTOS
-// Keep the exact file extensions and capitalization!
-
-function addGalleryPhotos(containerId, files, className, altText) {
-  const container = document.getElementById(containerId);
-
-  files.forEach(file => {
-    container.insertAdjacentHTML("beforeend", `
-      <div class="photo ${className}">
-        <img
-          src="images/${file}"
-          alt="${altText}"
-          onclick="openLightbox(this)"
-          loading="lazy"
-        >
-      </div>
-    `);
-  });
-}
-
-// KIM TUYEN ALBUM
-addGalleryPhotos(
-  "kimtuyenPhotos",
-  [
-    "kimtuyen3.JPG",
-    "kimtuyen4.JPG",
-    "kimtuyen5.JPG",
-    "kimtuyen6.JPG",
-    "kimtuyen7.JPG",
-    "kimtuyen8.JPEG",
-    "kimtuyen9.JPEG",
-    "kimtuyen10.JPG",
-    "kimtuyen11.jpeg",
-    "kimtuyen12.jpeg",
-    "kimtuyen13.JPG",
-    "kimtuyen14.PNG",
-    "kimtuyen15.PNG",
-    "kimtuyen16.jpg",
-    "kimtuyen17.jpg",
-    "kimtuyen18.jpg"
-  ],
-  "kimtuyen-photo",
-  "Kim Tuyến"
-);
-
-// DONG ANH QUYNH ALBUM
-addGalleryPhotos(
-  "daqPhotos",
-  [
-    "daq3.jpg",
-    "daq4.JPG",
-    "daq5.JPG",
-    "daq6.jpg",
-    "daq7.JPG",
-    "daq8.jpg",
-    "daq9.JPG",
-    "daq10.JPG",
-    "daq11.JPG",
-    "daq12.JPG",
-    "daq13.JPG",
-    "daq14.JPG",
-    "daq15.JPG",
-    "daq16.JPG",
-    "daq17.JPG",
-    "daq18.JPG"
-  ],
-  "daq-photo",
-  "Đồng Ánh Quỳnh"
-);
-
-// TOGETHER ALBUM
-addGalleryPhotos(
-  "couplePhotos",
-  [
-    "couple3.jpg",
-    "couple4.JPG",
-    "couple5.JPG",
-    "couple6.JPG",
-    "couple7.JPG",
-    "couple8.JPG",
-    "couple9.jpg",
-    "couple10.jpg",
-    "couple11.JPG",
-    "couple12.jpg",
-    "couple13.jpg",
-    "couple14.jpg",
-    "couple15.jpg",
-    "couple16.jpg",
-    "couple17.jpg",
-    "couple18.jpg",
-    "couple19.jpg",
-    "couple20.jpg",
-    "couple21.jpg",
-    "couple22.jpg",
-    "couple23.jpg",
-    "couple24.jpg"
-  ],
-  "couple-photo",
-  "Kim Tuyến and Đồng Ánh Quỳnh"
-);
-    }
-  </script>
-
-</section>
-
-  <!-- KIM TUYEN ALBUM -->
-  <div id="kimtuyenAlbum" class="album-detail">
-    <button class="back-button" onclick="backToAlbums()">← BACK TO ALBUMS</button>
-    <div class="album-heading">
-      <h3>Kim Tuyến</h3>
-      <p>A collection of her beautiful moments</p>
-    </div>
-
-    <div class="gallery">
-      <div class="photo kimtuyen-photo">
-        <img src="images/kimtuyen1.jpg" alt="Kim Tuyến" onclick="openLightbox(this)">
-        <span class="photo-caption">A timeless elegance</span>
-      </div>
-      <div class="photo kimtuyen-photo">
-        <img src="images/kimtuyen2.jpg" alt="Kim Tuyến" onclick="openLightbox(this)">
-        <span class="photo-caption">Grace in every moment</span>
-      </div>
-
-      <!-- ADD MORE KIM TUYEN PHOTOS HERE -->
-    </div>
-  </div>
-
-  <!-- DONG ANH QUYNH ALBUM -->
-  <div id="daqAlbum" class="album-detail">
-    <button class="back-button" onclick="backToAlbums()">← BACK TO ALBUMS</button>
-    <div class="album-heading">
-      <h3>Đồng Ánh Quỳnh</h3>
-      <p>A collection of her beautiful moments</p>
-    </div>
-
-    <div class="gallery">
-      <div class="photo daq-photo">
-        <img src="images/daq1.jpg" alt="Đồng Ánh Quỳnh" onclick="openLightbox(this)">
-        <span class="photo-caption">A soul that shines</span>
-      </div>
-      <div class="photo daq-photo">
-        <img src="images/daq2.jpg" alt="Đồng Ánh Quỳnh" onclick="openLightbox(this)">
-        <span class="photo-caption">Born to captivate</span>
-      </div>
-
-      <!-- ADD MORE DONG ANH QUYNH PHOTOS HERE -->
-    </div>
-  </div>
-
-  <!-- COUPLE ALBUM -->
-  <div id="coupleAlbum" class="album-detail">
-    <button class="back-button" onclick="backToAlbums()">← BACK TO ALBUMS</button>
-    <div class="album-heading">
-      <h3>Together</h3>
-      <p>Moments worth keeping</p>
-    </div>
-
-    <div class="gallery">
-      <div class="photo couple-photo">
-        <img src="images/couple1.jpg" alt="Kim Tuyến and Đồng Ánh Quỳnh" onclick="openLightbox(this)">
-        <span class="photo-caption">Two hearts, one story</span>
-      </div>
-      <div class="photo couple-photo">
-        <img src="images/couple2.jpg" alt="Kim Tuyến and Đồng Ánh Quỳnh" onclick="openLightbox(this)">
-        <span class="photo-caption">Moments worth keeping</span>
-      </div>
-
-      <!-- ADD MORE COUPLE PHOTOS HERE -->
-    </div>
-  </div>
 </section>
 
 <!-- OUR JOURNEY -->
+
 <section id="journey" class="journey-section">
+
   <h2 class="section-title">Our Journey</h2>
+
   <p class="section-subtitle">
     Every date holds a memory, every moment becomes a story
   </p>
@@ -1368,11 +1254,15 @@ addGalleryPhotos(
   <p class="empty-note">
     More memories will find their place here, one day at a time.
   </p>
+
 </section>
 
 <!-- VIDEO MOMENTS -->
+
 <section id="video-moments" class="video-section">
+
   <h2 class="section-title">Video Moments</h2>
+
   <p class="section-subtitle">
     Little clips, beautiful memories, moments on repeat
   </p>
@@ -1461,10 +1351,13 @@ addGalleryPhotos(
   <p class="empty-note">
     Seven little moments, collected here with love. More memories will be added along the way.
   </p>
+
 </section>
 
-<!-- OUR HEARTS / FAN MOMENTS -->
+<!-- OUR HEARTS -->
+
 <section id="fan-moments" class="fan-section">
+
   <h2 class="section-title">Our Hearts</h2>
 
   <p class="section-subtitle">
@@ -1472,32 +1365,32 @@ addGalleryPhotos(
   </p>
 
   <p class="fan-note">
-  Cherishing every gathering, every memory, and every moment we share as a fandom
+    Cherishing every gathering, every memory,
+    and every moment we share as a fandom
   </p>
 
   <div class="fan-grid">
 
-    <!-- FAN PHOTO 3 -->
+    <!-- PHOTO 3 -->
+
     <div class="fan-item">
-      <img
-        src="Our%20Heart/3.jpg"
+      <img src="Our%20Heart/3.jpg"
         alt="A precious fan memory"
         onclick="openLightbox(this)"
-        loading="lazy"
-      >
+        loading="lazy">
     </div>
 
-    <!-- FAN PHOTO 8 -->
+    <!-- PHOTO 8 -->
+
     <div class="fan-item">
-      <img
-        src="Our%20Heart/8.jpg"
+      <img src="Our%20Heart/8.jpg"
         alt="A precious fan memory"
         onclick="openLightbox(this)"
-        loading="lazy"
-      >
+        loading="lazy">
     </div>
 
-    <!-- FAN VIDEO 10 -->
+    <!-- VIDEO 10 -->
+
     <div class="fan-item">
       <video controls playsinline preload="metadata">
         <source src="Our%20Heart/10.mp4" type="video/mp4">
@@ -1505,7 +1398,8 @@ addGalleryPhotos(
       </video>
     </div>
 
-    <!-- FAN VIDEO 15 -->
+    <!-- VIDEO 15 -->
+
     <div class="fan-item">
       <video controls playsinline preload="metadata">
         <source src="Our%20Heart/15.mp4" type="video/mp4">
@@ -1513,7 +1407,8 @@ addGalleryPhotos(
       </video>
     </div>
 
-    <!-- FAN VIDEO 18 -->
+    <!-- VIDEO 18 -->
+
     <div class="fan-item">
       <video controls playsinline preload="metadata">
         <source src="Our%20Heart/18.mp4" type="video/mp4">
@@ -1521,7 +1416,8 @@ addGalleryPhotos(
       </video>
     </div>
 
-    <!-- FAN VIDEO 21 -->
+    <!-- VIDEO 21 -->
+
     <div class="fan-item">
       <video controls playsinline preload="metadata">
         <source src="Our%20Heart/21.mp4" type="video/mp4">
@@ -1529,7 +1425,8 @@ addGalleryPhotos(
       </video>
     </div>
 
-    <!-- FAN VIDEO 24 -->
+    <!-- VIDEO 24 -->
+
     <div class="fan-item">
       <video controls playsinline preload="metadata">
         <source src="Our%20Heart/24.mp4" type="video/mp4">
@@ -1537,7 +1434,8 @@ addGalleryPhotos(
       </video>
     </div>
 
-    <!-- FAN VIDEO 26 -->
+    <!-- VIDEO 26 -->
+
     <div class="fan-item">
       <video controls playsinline preload="metadata">
         <source src="Our%20Heart/26.mp4" type="video/mp4">
@@ -1550,10 +1448,13 @@ addGalleryPhotos(
   <p style="color:#bca993;font-size:12px;margin-top:25px;">
     Made possible by every little act of love.
   </p>
+
 </section>
 
-<!-- FAN LETTERS -->
-<section id="letters" class="letters">
+<!-- LETTERS -->
+
+<section id="letters">
+
   <h2 class="section-title">Letters from Fans</h2>
   <p class="section-subtitle">Little words, endless affection</p>
 
@@ -1579,9 +1480,11 @@ addGalleryPhotos(
      class="letter-button">
     SEND YOUR LETTER
   </a>
+
 </section>
 
-<!-- NEW MP3 MUSIC PLAYLIST -->
+<!-- MUSIC PLAYER -->
+
 <div class="music-player hidden" id="musicPlayer">
 
   <div class="music-player-label">
@@ -1663,69 +1566,208 @@ addGalleryPhotos(
 </button>
 
 <!-- FOOTER -->
+
 <footer>
   <p>Made with love for Kim Tuyến & Đồng Ánh Quỳnh</p>
   <p>© 2026 A Little World of Us</p>
 </footer>
 
 <!-- LIGHTBOX -->
+
 <div class="lightbox" id="lightbox">
   <button class="lightbox-close" id="lightboxClose" aria-label="Close image">&times;</button>
   <img id="lightboxImage" src="" alt="Enlarged photo">
 </div>
 
 <script>
+
+/* AUTOMATIC GALLERY PHOTOS */
+
+function addGalleryPhotos(containerId, files, className, altText) {
+
+  const container = document.getElementById(containerId);
+
+  if (!container) return;
+
+  files.forEach(file => {
+
+    const photo = document.createElement("div");
+    photo.className = `photo ${className}`;
+
+    const img = document.createElement("img");
+    img.src = `images/${file}`;
+    img.alt = altText;
+    img.loading = "lazy";
+    img.onclick = function() {
+      openLightbox(this);
+    };
+
+    photo.appendChild(img);
+    container.appendChild(photo);
+
+  });
+}
+
+/* KIM TUYEN ALBUM */
+
+addGalleryPhotos(
+  "kimtuyenPhotos",
+  [
+    "kimtuyen3.JPG",
+    "kimtuyen4.JPG",
+    "kimtuyen5.JPG",
+    "kimtuyen6.JPG",
+    "kimtuyen7.JPG",
+    "kimtuyen8.JPEG",
+    "kimtuyen9.JPEG",
+    "kimtuyen10.JPG",
+    "kimtuyen11.jpeg",
+    "kimtuyen12.jpeg",
+    "kimtuyen13.JPG",
+    "kimtuyen14.PNG",
+    "kimtuyen15.PNG",
+    "kimtuyen16.jpg",
+    "kimtuyen17.jpg",
+    "kimtuyen18.jpg"
+  ],
+  "kimtuyen-photo",
+  "Kim Tuyến"
+);
+
+/* DONG ANH QUYNH ALBUM */
+
+addGalleryPhotos(
+  "daqPhotos",
+  [
+    "daq3.jpg",
+    "daq4.JPG",
+    "daq5.JPG",
+    "daq6.jpg",
+    "daq7.JPG",
+    "daq8.jpg",
+    "daq9.JPG",
+    "daq10.JPG",
+    "daq11.JPG",
+    "daq12.JPG",
+    "daq13.JPG",
+    "daq14.JPG",
+    "daq15.JPG",
+    "daq16.JPG",
+    "daq17.JPG",
+    "daq18.JPG"
+  ],
+  "daq-photo",
+  "Đồng Ánh Quỳnh"
+);
+
+/* COUPLE ALBUM */
+
+addGalleryPhotos(
+  "couplePhotos",
+  [
+    "couple3.jpg",
+    "couple4.JPG",
+    "couple5.JPG",
+    "couple6.JPG",
+    "couple7.JPG",
+    "couple8.JPG",
+    "couple9.jpg",
+    "couple10.jpg",
+    "couple11.JPG",
+    "couple12.jpg",
+    "couple13.jpg",
+    "couple14.jpg",
+    "couple15.jpg",
+    "couple16.jpg",
+    "couple17.jpg",
+    "couple18.jpg",
+    "couple19.jpg",
+    "couple20.jpg",
+    "couple21.jpg",
+    "couple22.jpg",
+    "couple23.jpg",
+    "couple24.jpg"
+  ],
+  "couple-photo",
+  "Kim Tuyến and Đồng Ánh Quỳnh"
+);
+
 /* ALBUM NAVIGATION */
+
 function openAlbum(albumId) {
+
   document.getElementById("albumList").style.display = "none";
 
   document.querySelectorAll(".album-detail").forEach(album => {
     album.classList.remove("active");
   });
 
-  document.getElementById(albumId).classList.add("active");
+  const selectedAlbum = document.getElementById(albumId);
+
+  if (selectedAlbum) {
+    selectedAlbum.classList.add("active");
+  }
+
+  document.getElementById("gallery").scrollIntoView({
+    behavior:"smooth"
+  });
+
 }
 
 function backToAlbums() {
+
   document.querySelectorAll(".album-detail").forEach(album => {
     album.classList.remove("active");
   });
 
   document.getElementById("albumList").style.display = "grid";
+
 }
 
 /* LIGHTBOX */
+
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightboxImage");
 const closeButton = document.getElementById("lightboxClose");
 
 function openLightbox(img) {
+
   lightboxImage.src = img.src;
   lightboxImage.alt = img.alt;
+
   lightbox.classList.add("active");
+
   document.body.style.overflow = "hidden";
+
 }
 
 function closeLightbox() {
+
   lightbox.classList.remove("active");
+
   document.body.style.overflow = "";
+
 }
 
 lightbox.addEventListener("click", function(event) {
+
   if (event.target === lightbox) {
     closeLightbox();
   }
+
 });
 
 closeButton.addEventListener("click", closeLightbox);
 
 document.addEventListener("keydown", function(event) {
+
   if (event.key === "Escape") {
     closeLightbox();
   }
+
 });
 
-/* MP3 MUSIC PLAYLIST */
+/* MUSIC PLAYER */
 
 const musicPlayer = document.getElementById("musicPlayer");
 const musicPlayerToggle = document.getElementById("musicPlayerToggle");
@@ -1744,6 +1786,7 @@ const welcomeNoteButton = document.getElementById("welcomeNoteButton");
 /* MP3 FILE PATHS */
 
 const musicFiles = {
+
   "co-minh-va-ta": "music/Có mình và ta.mp3",
 
   "doa-hoa-xinh": "music/Đóa hoa xinh sẽ lung linh.mp3",
@@ -1757,11 +1800,13 @@ const musicFiles = {
   "thoi-mien": "music/Thôi miên.mp3",
 
   "cam-on-tinh-yeu": "music/Cám ơn tình yêu.mp3"
+
 };
 
 /* PLAY SELECTED SONG */
 
 function playSong(song) {
+
   const songId = song.dataset.song;
   const filePath = musicFiles[songId];
 
@@ -1779,18 +1824,22 @@ function playSong(song) {
   });
 
   song.classList.add("active");
+
 }
 
 /* WELCOME NOTE */
 
 welcomeNoteButton.addEventListener("click", function() {
+
   welcomeNote.classList.add("hidden");
   musicWelcome.classList.remove("hidden");
+
 });
 
 /* START MUSIC */
 
 musicWelcomePlay.addEventListener("click", function() {
+
   musicWelcome.classList.add("hidden");
   musicPlayer.classList.remove("hidden");
 
@@ -1798,55 +1847,68 @@ musicWelcomePlay.addEventListener("click", function() {
   musicPlayerToggle.setAttribute("aria-expanded", "true");
 
   playSong(playlistSongs[0]);
+
 });
 
 /* SKIP MUSIC INVITATION */
 
 musicWelcomeLater.addEventListener("click", function() {
+
   musicWelcome.classList.add("hidden");
+
 });
 
 /* OPEN PLAYLIST */
 
 musicPlayerToggle.addEventListener("click", function() {
+
   musicPlayer.classList.remove("hidden");
 
   musicPlayerToggle.style.display = "none";
   musicPlayerToggle.setAttribute("aria-expanded", "true");
+
 });
 
 /* CHOOSE A SONG */
 
 playlistSongs.forEach(song => {
+
   song.addEventListener("click", function() {
     playSong(this);
   });
+
 });
 
 /* AUTO PLAY NEXT SONG */
 
 musicAudio.addEventListener("ended", function() {
+
   const activeSong = document.querySelector(".playlist-song.active");
 
   if (!activeSong) return;
 
   const songs = Array.from(playlistSongs);
+
   const currentIndex = songs.indexOf(activeSong);
   const nextIndex = currentIndex + 1;
 
   if (nextIndex < songs.length) {
     playSong(songs[nextIndex]);
   }
+
 });
 
-/* CLOSE PLAYLIST - KEEP MUSIC PLAYING */
+/* CLOSE PLAYLIST */
 
 musicPlayerClose.addEventListener("click", function() {
+
   musicPlayer.classList.add("hidden");
 
   musicPlayerToggle.style.display = "block";
   musicPlayerToggle.setAttribute("aria-expanded", "false");
+
 });
+
 </script>
 
 </body>
