@@ -674,15 +674,6 @@ section {
 
 .music-player.hidden { display:none; }
 
-.music-player-close {
-  border:0;
-  background:transparent;
-  color:#e8c995;
-  font-size:17px;
-  line-height:1;
-  cursor:pointer;
-}
-
 .music-player audio {
   display:block;
   width:100%;
@@ -1311,7 +1302,7 @@ footer p + p {
   </a>
 </section>
 
-<!-- FLOATING MP3 MUSIC PLAYLIST -->
+<!-- NEW MP3 MUSIC PLAYLIST -->
 <div class="music-player hidden" id="musicPlayer">
 
   <div class="music-player-label">
@@ -1319,35 +1310,26 @@ footer p + p {
     <button class="music-player-close" id="musicPlayerClose" aria-label="Close music player">&times;</button>
   </div>
 
-  <button class="playlist-song" type="button" data-song="cam-on-tinh-yeu">
+  <button class="playlist-song" type="button" data-song="co-minh-va-ta">
     <span class="song-number">01</span>
     <span class="song-info">
-      <span class="song-title">Cảm Ơn Tình Yêu</span>
-      <span class="song-subtitle">Kim Tuyến</span>
-    </span>
-    <span class="song-play-icon">▶</span>
-  </button>
-
-  <button class="playlist-song" type="button" data-song="phong-zin-zin">
-    <span class="song-number">02</span>
-    <span class="song-info">
-      <span class="song-title">Phóng Zìn Zìn</span>
+      <span class="song-title">Có mình và ta</span>
       <span class="song-subtitle">A little music moment</span>
     </span>
     <span class="song-play-icon">▶</span>
   </button>
 
-  <button class="playlist-song" type="button" data-song="phep-mau">
-    <span class="song-number">03</span>
+  <button class="playlist-song" type="button" data-song="doa-hoa-xinh">
+    <span class="song-number">02</span>
     <span class="song-info">
-      <span class="song-title">Phép Màu</span>
-      <span class="song-subtitle">Đàn Cá Gỗ OST</span>
+      <span class="song-title">Đóa hoa xinh sẽ lung linh</span>
+      <span class="song-subtitle">A little music moment</span>
     </span>
     <span class="song-play-icon">▶</span>
   </button>
 
   <button class="playlist-song" type="button" data-song="single-mom">
-    <span class="song-number">04</span>
+    <span class="song-number">03</span>
     <span class="song-info">
       <span class="song-title">Single Mom</span>
       <span class="song-subtitle">A little music moment</span>
@@ -1355,20 +1337,38 @@ footer p + p {
     <span class="song-play-icon">▶</span>
   </button>
 
-  <button class="playlist-song" type="button" data-song="thoi-mien">
-    <span class="song-number">05</span>
+  <button class="playlist-song" type="button" data-song="phep-mau">
+    <span class="song-number">04</span>
     <span class="song-info">
-      <span class="song-title">Thôi Miên</span>
+      <span class="song-title">Phép màu</span>
       <span class="song-subtitle">A little music moment</span>
     </span>
     <span class="song-play-icon">▶</span>
   </button>
 
-  <button class="playlist-song" type="button" data-song="theme-song">
+  <button class="playlist-song" type="button" data-song="mot-doi">
+    <span class="song-number">05</span>
+    <span class="song-info">
+      <span class="song-title">Một đời</span>
+      <span class="song-subtitle">A little music moment</span>
+    </span>
+    <span class="song-play-icon">▶</span>
+  </button>
+
+  <button class="playlist-song" type="button" data-song="thoi-mien">
     <span class="song-number">06</span>
     <span class="song-info">
-      <span class="song-title">Theme Song</span>
-      <span class="song-subtitle">Our little theme song</span>
+      <span class="song-title">Thôi miên</span>
+      <span class="song-subtitle">A little music moment</span>
+    </span>
+    <span class="song-play-icon">▶</span>
+  </button>
+
+  <button class="playlist-song" type="button" data-song="cam-on-tinh-yeu">
+    <span class="song-number">07</span>
+    <span class="song-info">
+      <span class="song-title">Cám ơn tình yêu</span>
+      <span class="song-subtitle">A little music moment</span>
     </span>
     <span class="song-play-icon">▶</span>
   </button>
@@ -1465,17 +1465,19 @@ const welcomeNoteButton = document.getElementById("welcomeNoteButton");
 /* MP3 FILE PATHS */
 
 const musicFiles = {
-  "cam-on-tinh-yeu": "music/CAM-ON-TINH-YEU-KIM-TUYEN-MASTERR-_BGV-50_.mp3",
+  "co-minh-va-ta": "music/Có mình và ta.mp3",
 
-  "phong-zin-zin": "music/PHÓNG ZÌN ZÌN.mp3",
+  "doa-hoa-xinh": "music/Đóa hoa xinh sẽ lung linh.mp3",
 
-  "phep-mau": "music/Phép Màu (From Đàn Cá Gỗ Original Soundtrack).mp3",
+  "single-mom": "music/Single mom.mp3",
 
-  "single-mom": "music/Single Mom.mp3",
+  "phep-mau": "music/Phép màu.mp3",
 
-  "thoi-mien": "music/Thôi Miên.mp3",
+  "mot-doi": "music/Một đời.mp3",
 
-  "theme-song": "music/theme-song.mp3"
+  "thoi-mien": "music/Thôi miên.mp3",
+
+  "cam-on-tinh-yeu": "music/Cám ơn tình yêu.mp3"
 };
 
 /* PLAY SELECTED SONG */
