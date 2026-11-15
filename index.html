@@ -1099,54 +1099,106 @@ footer p + p {
     </div>
   </div>
 
-  <!-- AUTOMATICALLY ADD NEW PHOTOS -->
-  <script>
-    // KIM TUYEN: kimtuyen3.jpg - kimtuyen18.jpg
-    const kimtuyenContainer = document.getElementById("kimtuyenPhotos");
+// AUTOMATICALLY ADD GALLERY PHOTOS
+// Keep the exact file extensions and capitalization!
 
-    for (let i = 3; i <= 18; i++) {
-      kimtuyenContainer.insertAdjacentHTML("beforeend", `
-        <div class="photo kimtuyen-photo">
-          <img
-            src="images/kimtuyen${i}.jpg"
-            alt="Kim Tuyến"
-            onclick="openLightbox(this)"
-            loading="lazy"
-          >
-        </div>
-      `);
-    }
+function addGalleryPhotos(containerId, files, className, altText) {
+  const container = document.getElementById(containerId);
 
-    // DONG ANH QUYNH: daq3.jpg - daq18.jpg
-    const daqContainer = document.getElementById("daqPhotos");
+  files.forEach(file => {
+    container.insertAdjacentHTML("beforeend", `
+      <div class="photo ${className}">
+        <img
+          src="images/${file}"
+          alt="${altText}"
+          onclick="openLightbox(this)"
+          loading="lazy"
+        >
+      </div>
+    `);
+  });
+}
 
-    for (let i = 3; i <= 18; i++) {
-      daqContainer.insertAdjacentHTML("beforeend", `
-        <div class="photo daq-photo">
-          <img
-            src="images/daq${i}.jpg"
-            alt="Đồng Ánh Quỳnh"
-            onclick="openLightbox(this)"
-            loading="lazy"
-          >
-        </div>
-      `);
-    }
+// KIM TUYEN ALBUM
+addGalleryPhotos(
+  "kimtuyenPhotos",
+  [
+    "kimtuyen3.JPG",
+    "kimtuyen4.JPG",
+    "kimtuyen5.JPG",
+    "kimtuyen6.JPG",
+    "kimtuyen7.JPG",
+    "kimtuyen8.JPEG",
+    "kimtuyen9.JPEG",
+    "kimtuyen10.JPG",
+    "kimtuyen11.jpeg",
+    "kimtuyen12.jpeg",
+    "kimtuyen13.JPG",
+    "kimtuyen14.PNG",
+    "kimtuyen15.PNG",
+    "kimtuyen16.jpg",
+    "kimtuyen17.jpg",
+    "kimtuyen18.jpg"
+  ],
+  "kimtuyen-photo",
+  "Kim Tuyến"
+);
 
-    // TOGETHER: couple3.jpg - couple24.jpg
-    const coupleContainer = document.getElementById("couplePhotos");
+// DONG ANH QUYNH ALBUM
+addGalleryPhotos(
+  "daqPhotos",
+  [
+    "daq3.jpg",
+    "daq4.JPG",
+    "daq5.JPG",
+    "daq6.jpg",
+    "daq7.JPG",
+    "daq8.jpg",
+    "daq9.JPG",
+    "daq10.JPG",
+    "daq11.JPG",
+    "daq12.JPG",
+    "daq13.JPG",
+    "daq14.JPG",
+    "daq15.JPG",
+    "daq16.JPG",
+    "daq17.JPG",
+    "daq18.JPG"
+  ],
+  "daq-photo",
+  "Đồng Ánh Quỳnh"
+);
 
-    for (let i = 3; i <= 24; i++) {
-      coupleContainer.insertAdjacentHTML("beforeend", `
-        <div class="photo couple-photo">
-          <img
-            src="images/couple${i}.jpg"
-            alt="Kim Tuyến and Đồng Ánh Quỳnh"
-            onclick="openLightbox(this)"
-            loading="lazy"
-          >
-        </div>
-      `);
+// TOGETHER ALBUM
+addGalleryPhotos(
+  "couplePhotos",
+  [
+    "couple3.jpg",
+    "couple4.JPG",
+    "couple5.JPG",
+    "couple6.JPG",
+    "couple7.JPG",
+    "couple8.JPG",
+    "couple9.jpg",
+    "couple10.jpg",
+    "couple11.JPG",
+    "couple12.jpg",
+    "couple13.jpg",
+    "couple14.jpg",
+    "couple15.jpg",
+    "couple16.jpg",
+    "couple17.jpg",
+    "couple18.jpg",
+    "couple19.jpg",
+    "couple20.jpg",
+    "couple21.jpg",
+    "couple22.jpg",
+    "couple23.jpg",
+    "couple24.jpg"
+  ],
+  "couple-photo",
+  "Kim Tuyến and Đồng Ánh Quỳnh"
+);
     }
   </script>
 
