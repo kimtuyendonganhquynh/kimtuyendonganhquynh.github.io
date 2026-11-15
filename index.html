@@ -998,6 +998,7 @@ footer p + p {
   <h2 class="section-title">Our Gallery</h2>
   <p class="section-subtitle">A collection of moments we treasure</p>
 
+  <!-- ALBUM LIST -->
   <div id="albumList" class="album-grid">
 
     <div class="album-card" onclick="openAlbum('kimtuyenAlbum')">
@@ -1023,7 +1024,133 @@ footer p + p {
         <p>MOMENTS OF TWO</p>
       </div>
     </div>
+
   </div>
+
+  <!-- KIM TUYEN ALBUM -->
+  <div id="kimtuyenAlbum" class="album-detail">
+    <button class="back-button" onclick="backToAlbums()">← BACK TO ALBUMS</button>
+
+    <div class="album-heading">
+      <h3>Kim Tuyến</h3>
+      <p>A collection of her beautiful moments</p>
+    </div>
+
+    <div class="gallery" id="kimtuyenPhotos">
+
+      <div class="photo kimtuyen-photo">
+        <img src="images/kimtuyen1.jpg" alt="Kim Tuyến" onclick="openLightbox(this)">
+        <span class="photo-caption">A timeless elegance</span>
+      </div>
+
+      <div class="photo kimtuyen-photo">
+        <img src="images/kimtuyen2.jpg" alt="Kim Tuyến" onclick="openLightbox(this)">
+        <span class="photo-caption">Grace in every moment</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- DONG ANH QUYNH ALBUM -->
+  <div id="daqAlbum" class="album-detail">
+    <button class="back-button" onclick="backToAlbums()">← BACK TO ALBUMS</button>
+
+    <div class="album-heading">
+      <h3>Đồng Ánh Quỳnh</h3>
+      <p>A collection of her beautiful moments</p>
+    </div>
+
+    <div class="gallery" id="daqPhotos">
+
+      <div class="photo daq-photo">
+        <img src="images/daq1.jpg" alt="Đồng Ánh Quỳnh" onclick="openLightbox(this)">
+        <span class="photo-caption">A soul that shines</span>
+      </div>
+
+      <div class="photo daq-photo">
+        <img src="images/daq2.jpg" alt="Đồng Ánh Quỳnh" onclick="openLightbox(this)">
+        <span class="photo-caption">Born to captivate</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- COUPLE ALBUM -->
+  <div id="coupleAlbum" class="album-detail">
+    <button class="back-button" onclick="backToAlbums()">← BACK TO ALBUMS</button>
+
+    <div class="album-heading">
+      <h3>Together</h3>
+      <p>Moments worth keeping</p>
+    </div>
+
+    <div class="gallery" id="couplePhotos">
+
+      <div class="photo couple-photo">
+        <img src="images/couple1.jpg" alt="Kim Tuyến and Đồng Ánh Quỳnh" onclick="openLightbox(this)">
+        <span class="photo-caption">Two hearts, one story</span>
+      </div>
+
+      <div class="photo couple-photo">
+        <img src="images/couple2.jpg" alt="Kim Tuyến and Đồng Ánh Quỳnh" onclick="openLightbox(this)">
+        <span class="photo-caption">Moments worth keeping</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- AUTOMATICALLY ADD NEW PHOTOS -->
+  <script>
+    // KIM TUYEN: kimtuyen3.jpg - kimtuyen18.jpg
+    const kimtuyenContainer = document.getElementById("kimtuyenPhotos");
+
+    for (let i = 3; i <= 18; i++) {
+      kimtuyenContainer.insertAdjacentHTML("beforeend", `
+        <div class="photo kimtuyen-photo">
+          <img
+            src="images/kimtuyen${i}.jpg"
+            alt="Kim Tuyến"
+            onclick="openLightbox(this)"
+            loading="lazy"
+          >
+        </div>
+      `);
+    }
+
+    // DONG ANH QUYNH: daq3.jpg - daq18.jpg
+    const daqContainer = document.getElementById("daqPhotos");
+
+    for (let i = 3; i <= 18; i++) {
+      daqContainer.insertAdjacentHTML("beforeend", `
+        <div class="photo daq-photo">
+          <img
+            src="images/daq${i}.jpg"
+            alt="Đồng Ánh Quỳnh"
+            onclick="openLightbox(this)"
+            loading="lazy"
+          >
+        </div>
+      `);
+    }
+
+    // TOGETHER: couple3.jpg - couple24.jpg
+    const coupleContainer = document.getElementById("couplePhotos");
+
+    for (let i = 3; i <= 24; i++) {
+      coupleContainer.insertAdjacentHTML("beforeend", `
+        <div class="photo couple-photo">
+          <img
+            src="images/couple${i}.jpg"
+            alt="Kim Tuyến and Đồng Ánh Quỳnh"
+            onclick="openLightbox(this)"
+            loading="lazy"
+          >
+        </div>
+      `);
+    }
+  </script>
+
+</section>
 
   <!-- KIM TUYEN ALBUM -->
   <div id="kimtuyenAlbum" class="album-detail">
