@@ -697,11 +697,13 @@ section {
   display:flex;
   flex-direction:column;
   flex:1;
+  min-width:0;
 }
 
 .song-title {
   color:#e8c995;
   font-size:11px;
+  overflow-wrap:anywhere;
 }
 
 .song-subtitle {
@@ -841,7 +843,6 @@ footer p + p {
 }
 
 @media (max-width:600px) {
-
   .welcome-note-card { padding:32px 22px; }
   .welcome-note-card h2 { font-size:25px; }
   .welcome-note-card p { font-size:13px; }
@@ -1000,8 +1001,6 @@ footer p + p {
     </p>
   </div>
 
-  <!-- HOME PHOTOS: 2-2-2 -->
-
   <div class="gallery" style="margin-top:50px;">
 
     <div class="photo solo-photo kimtuyen-photo">
@@ -1043,8 +1042,6 @@ footer p + p {
 
   <h2 class="section-title">Our Gallery</h2>
   <p class="section-subtitle">A collection of moments we treasure</p>
-
-  <!-- ALBUM LIST -->
 
   <div id="albumList" class="album-grid">
 
@@ -1371,16 +1368,12 @@ footer p + p {
 
   <div class="fan-grid">
 
-    <!-- PHOTO 3 -->
-
     <div class="fan-item">
       <img src="Our%20Heart/3.jpg"
         alt="A precious fan memory"
         onclick="openLightbox(this)"
         loading="lazy">
     </div>
-
-    <!-- PHOTO 8 -->
 
     <div class="fan-item">
       <img src="Our%20Heart/8.jpg"
@@ -1389,16 +1382,12 @@ footer p + p {
         loading="lazy">
     </div>
 
-    <!-- VIDEO 10 -->
-
     <div class="fan-item">
       <video controls playsinline preload="metadata">
         <source src="Our%20Heart/10.mp4" type="video/mp4">
         Your browser does not support video playback.
       </video>
     </div>
-
-    <!-- VIDEO 15 -->
 
     <div class="fan-item">
       <video controls playsinline preload="metadata">
@@ -1407,16 +1396,12 @@ footer p + p {
       </video>
     </div>
 
-    <!-- VIDEO 18 -->
-
     <div class="fan-item">
       <video controls playsinline preload="metadata">
         <source src="Our%20Heart/18.mp4" type="video/mp4">
         Your browser does not support video playback.
       </video>
     </div>
-
-    <!-- VIDEO 21 -->
 
     <div class="fan-item">
       <video controls playsinline preload="metadata">
@@ -1425,16 +1410,12 @@ footer p + p {
       </video>
     </div>
 
-    <!-- VIDEO 24 -->
-
     <div class="fan-item">
       <video controls playsinline preload="metadata">
         <source src="Our%20Heart/24.mp4" type="video/mp4">
         Your browser does not support video playback.
       </video>
     </div>
-
-    <!-- VIDEO 26 -->
 
     <div class="fan-item">
       <video controls playsinline preload="metadata">
@@ -1501,10 +1482,10 @@ footer p + p {
     <span class="song-play-icon">▶</span>
   </button>
 
-  <button class="playlist-song" type="button" data-song="doa-hoa-xinh">
+  <button class="playlist-song" type="button" data-song="thoi-mien">
     <span class="song-number">02</span>
     <span class="song-info">
-      <span class="song-title">Đóa hoa xinh sẽ lung linh</span>
+      <span class="song-title">Thôi miên</span>
       <span class="song-subtitle">A little music moment</span>
     </span>
     <span class="song-play-icon">▶</span>
@@ -1513,7 +1494,7 @@ footer p + p {
   <button class="playlist-song" type="button" data-song="single-mom">
     <span class="song-number">03</span>
     <span class="song-info">
-      <span class="song-title">Single Mom</span>
+      <span class="song-title">Single mom</span>
       <span class="song-subtitle">A little music moment</span>
     </span>
     <span class="song-play-icon">▶</span>
@@ -1528,8 +1509,26 @@ footer p + p {
     <span class="song-play-icon">▶</span>
   </button>
 
-  <button class="playlist-song" type="button" data-song="mot-doi">
+  <button class="playlist-song" type="button" data-song="doa-hoa-xinh">
     <span class="song-number">05</span>
+    <span class="song-info">
+      <span class="song-title">Đóa hoa xinh sẽ lung linh</span>
+      <span class="song-subtitle">A little music moment</span>
+    </span>
+    <span class="song-play-icon">▶</span>
+  </button>
+
+  <button class="playlist-song" type="button" data-song="mot-nha">
+    <span class="song-number">06</span>
+    <span class="song-info">
+      <span class="song-title">Một nhà</span>
+      <span class="song-subtitle">A little music moment</span>
+    </span>
+    <span class="song-play-icon">▶</span>
+  </button>
+
+  <button class="playlist-song" type="button" data-song="mot-doi">
+    <span class="song-number">07</span>
     <span class="song-info">
       <span class="song-title">Một đời</span>
       <span class="song-subtitle">A little music moment</span>
@@ -1537,17 +1536,26 @@ footer p + p {
     <span class="song-play-icon">▶</span>
   </button>
 
-  <button class="playlist-song" type="button" data-song="thoi-mien">
-    <span class="song-number">06</span>
+  <button class="playlist-song" type="button" data-song="good-goodbye">
+    <span class="song-number">08</span>
     <span class="song-info">
-      <span class="song-title">Thôi miên</span>
+      <span class="song-title">Good goodbye</span>
+      <span class="song-subtitle">A little music moment</span>
+    </span>
+    <span class="song-play-icon">▶</span>
+  </button>
+
+  <button class="playlist-song" type="button" data-song="nothing-gonna-change">
+    <span class="song-number">09</span>
+    <span class="song-info">
+      <span class="song-title">Nothing gonna change my love for you</span>
       <span class="song-subtitle">A little music moment</span>
     </span>
     <span class="song-play-icon">▶</span>
   </button>
 
   <button class="playlist-song" type="button" data-song="cam-on-tinh-yeu">
-    <span class="song-number">07</span>
+    <span class="song-number">10</span>
     <span class="song-info">
       <span class="song-title">Cám ơn tình yêu</span>
       <span class="song-subtitle">A little music moment</span>
@@ -1598,6 +1606,7 @@ function addGalleryPhotos(containerId, files, className, altText) {
     img.src = `images/${file}`;
     img.alt = altText;
     img.loading = "lazy";
+
     img.onclick = function() {
       openLightbox(this);
     };
@@ -1736,7 +1745,6 @@ function openLightbox(img) {
   lightboxImage.alt = img.alt;
 
   lightbox.classList.add("active");
-
   document.body.style.overflow = "hidden";
 
 }
@@ -1744,7 +1752,6 @@ function openLightbox(img) {
 function closeLightbox() {
 
   lightbox.classList.remove("active");
-
   document.body.style.overflow = "";
 
 }
@@ -1787,19 +1794,25 @@ const welcomeNoteButton = document.getElementById("welcomeNoteButton");
 
 const musicFiles = {
 
-  "co-minh-va-ta": "music/Có mình và ta.mp3",
+  "co-minh-va-ta": "music/C%C3%B3%20m%C3%ACnh%20v%C3%A0%20ta.mp3",
 
-  "doa-hoa-xinh": "music/Đóa hoa xinh sẽ lung linh.mp3",
+  "thoi-mien": "music/Th%C3%B4i%20mi%C3%AAn.mp3",
 
-  "single-mom": "music/Single mom.mp3",
+  "single-mom": "music/Single%20mom.mp3",
 
-  "phep-mau": "music/Phép màu.mp3",
+  "phep-mau": "music/Ph%C3%A9p%20m%C3%A0u.mp3",
 
-  "mot-doi": "music/Một đời.mp3",
+  "doa-hoa-xinh": "music/%C4%90%C3%B3a%20hoa%20xinh%20s%E1%BA%BD%20lung%20linh.mp3",
 
-  "thoi-mien": "music/Thôi miên.mp3",
+  "mot-nha": "music/M%E1%BB%99t%20nh%C3%A0.mp3",
 
-  "cam-on-tinh-yeu": "music/Cám ơn tình yêu.mp3"
+  "mot-doi": "music/M%E1%BB%99t%20%C4%91%E1%BB%9Di.mp3",
+
+  "good-goodbye": "music/Good%20goodbye.mp3",
+
+  "nothing-gonna-change": "music/Nothing%20gonna%20change%20my%20love%20for%20you.mp3",
+
+  "cam-on-tinh-yeu": "music/C%C3%A1m%20%C6%A1n%20t%C3%ACnh%20y%C3%AAu.mp3"
 
 };
 
@@ -1888,13 +1901,10 @@ musicAudio.addEventListener("ended", function() {
   if (!activeSong) return;
 
   const songs = Array.from(playlistSongs);
-
   const currentIndex = songs.indexOf(activeSong);
-  const nextIndex = currentIndex + 1;
+  const nextIndex = (currentIndex + 1) % songs.length;
 
-  if (nextIndex < songs.length) {
-    playSong(songs[nextIndex]);
-  }
+  playSong(songs[nextIndex]);
 
 });
 
