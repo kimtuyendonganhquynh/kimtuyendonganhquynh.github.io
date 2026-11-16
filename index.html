@@ -497,50 +497,85 @@ section {
 /* A QUESTION, AN ANSWER */
 
 .post-story {
-  margin-top:22px;
+  margin-top:25px;
   text-align:left;
 }
 
 .post-people-grid {
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:18px;
+  gap:25px;
   align-items:start;
 }
 
 .post-person {
   min-width:0;
-  padding:14px;
-  border:1px solid rgba(128,100,72,.5);
-  background:rgba(255,255,255,.02);
+  margin:15px 0;
+  padding:20px;
+  border:1px solid rgba(128,100,72,.55);
+  background:rgba(255,255,255,.025);
 }
 
 .post-person-name {
   color:#e8c995;
-  font-size:13px;
-  letter-spacing:1px;
-  margin-bottom:12px;
+  font-size:11px;
+  letter-spacing:2px;
   font-weight:500;
+  text-align:center;
+  margin-bottom:15px;
 }
 
-.post-caption-quote {
+.post-person-quote {
+  min-height:95px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:15px 8px;
+  margin-bottom:18px;
   color:#f5e9d5;
-  font-size:14px;
+  font-size:19px;
+  font-weight:300;
   font-style:italic;
   line-height:1.8;
   text-align:center;
-  padding:12px 5px 18px;
+  border-top:1px solid rgba(128,100,72,.4);
+  border-bottom:1px solid rgba(128,100,72,.4);
+}
+
+.post-caption-original {
+  margin-bottom:20px;
+  padding:13px;
+  border:1px solid rgba(128,100,72,.5);
+  background:rgba(255,255,255,.025);
+  text-align:center;
+}
+
+.post-caption-original img {
+  display:block;
+  width:100%;
+  max-width:420px;
+  max-height:600px;
+  object-fit:contain;
+  margin:auto;
+  cursor:pointer;
+}
+
+.post-caption-label {
+  color:#bca993;
+  font-size:9px;
+  letter-spacing:2px;
+  margin-bottom:12px;
 }
 
 .post-photo-grid {
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:8px;
+  gap:9px;
 }
 
 .post-photo {
   min-width:0;
-  height:175px;
+  height:210px;
   overflow:hidden;
   border:1px solid rgba(128,100,72,.5);
   background:#171014;
@@ -557,42 +592,8 @@ section {
 
 .post-photo img:hover { transform:scale(1.035); }
 
-.post-caption-original {
-  margin-top:15px;
-  padding:10px;
-  border:1px solid rgba(128,100,72,.5);
-  background:rgba(255,255,255,.025);
-  text-align:center;
-}
-
-.post-caption-original img {
-  display:block;
-  width:100%;
-  max-width:100%;
-  max-height:450px;
-  object-fit:contain;
-  margin:auto;
-  cursor:pointer;
-}
-
-.post-caption-label {
-  color:#bca993;
-  font-size:9px;
-  letter-spacing:2px;
-  margin-bottom:12px;
-}
-
-.post-transition {
-  margin:25px 0;
-  text-align:center;
-  color:#e8c995;
-  font-size:15px;
-  font-style:italic;
-  letter-spacing:.5px;
-}
-
 .post-story-ending {
-  margin-top:25px;
+  margin-top:30px;
   text-align:center;
   color:#c9b8a8;
   font-size:12px;
@@ -1021,18 +1022,45 @@ footer p + p {
   .journey-content h3 { font-size:15px; }
   .journey-content p { font-size:12px; }
 
+  /* Keep the two post columns side by side on phones */
   .post-people-grid {
-    grid-template-columns:1fr;
-    gap:22px;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
   }
 
-  .post-photo {
-    height:190px;
+  .post-person {
+    padding:8px;
+    margin:12px 0;
+  }
+
+  .post-person-name {
+    font-size:9px;
+    letter-spacing:1px;
+  }
+
+  .post-person-quote {
+    min-height:75px;
+    padding:8px 4px;
+    font-size:13px;
+    line-height:1.6;
   }
 
   .post-caption-original {
-    padding:10px;
+    padding:6px;
+    margin-bottom:12px;
   }
+
+  .post-caption-label {
+    font-size:8px;
+    letter-spacing:1px;
+  }
+
+  .post-photo-grid {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:5px;
+  }
+
+  .post-photo { height:125px; }
 
   .music-player {
     right:12px;
@@ -1047,6 +1075,7 @@ footer p + p {
 }
 </style>
 </head>
+
 <body>
 
 <!-- WELCOME NOTE -->
@@ -1128,62 +1157,63 @@ footer p + p {
 
     <div class="photo solo-photo kimtuyen-photo">
       <img src="images/kimtuyen2.jpg" alt="Kim Tuyến" onclick="openLightbox(this)" loading="lazy">
-      <span class="photo-caption">Grace in every moment</span>
+      <span class="photo-caption">A beauty of her own</span>
     </div>
 
     <div class="photo solo-photo daq-photo">
       <img src="images/daq1.jpg" alt="Đồng Ánh Quỳnh" onclick="openLightbox(this)" loading="lazy">
-      <span class="photo-caption">A soul that shines</span>
+      <span class="photo-caption">A captivating presence</span>
     </div>
 
     <div class="photo solo-photo daq-photo">
       <img src="images/daq2.jpg" alt="Đồng Ánh Quỳnh" onclick="openLightbox(this)" loading="lazy">
-      <span class="photo-caption">Born to captivate</span>
+      <span class="photo-caption">Simply unforgettable</span>
     </div>
 
     <div class="photo couple-photo">
       <img src="images/couple1.jpg" alt="Kim Tuyến and Đồng Ánh Quỳnh" onclick="openLightbox(this)" loading="lazy">
-      <span class="photo-caption">Two hearts, one story</span>
+      <span class="photo-caption">Two souls, one little world</span>
     </div>
 
     <div class="photo couple-photo">
       <img src="images/couple2.jpg" alt="Kim Tuyến and Đồng Ánh Quỳnh" onclick="openLightbox(this)" loading="lazy">
-      <span class="photo-caption">Moments worth keeping</span>
+      <span class="photo-caption">A story worth keeping</span>
     </div>
 
   </div>
+
 </section>
 
 <!-- GALLERY -->
 
 <section id="gallery">
 
-  <h2 class="section-title">Our Gallery</h2>
-  <p class="section-subtitle">A collection of moments we treasure</p>
+  <h2 class="section-title">Gallery</h2>
+  <p class="section-subtitle">A collection of moments we hold close</p>
 
-  <div id="albumList" class="album-grid">
+  <div class="album-grid" id="albumList">
 
     <div class="album-card" onclick="openAlbum('kimtuyenAlbum')">
-      <img src="images/kimtuyen1.jpg" alt="Kim Tuyến album">
+      <img src="images/kimtuyen1.jpg" alt="Kim Tuyến">
       <div class="album-info">
         <h3>Kim Tuyến</h3>
-        <p>HER BEAUTIFUL MOMENTS</p>
+        <p>A collection of her moments</p>
       </div>
     </div>
 
     <div class="album-card" onclick="openAlbum('daqAlbum')">
-      <img src="images/daq1.jpg" alt="Đồng Ánh Quỳnh album">
+      <img src="images/daq1.jpg" alt="Đồng Ánh Quỳnh">
       <div class="album-info">
         <h3>Đồng Ánh Quỳnh</h3>
-        <p>HER BEAUTIFUL MOMENTS</p>
+        <p>A collection of her moments</p>
       </div>
     </div>
 
-    <div class="album-card" onclick="openAlbum('coupleAlbum')" style="grid-column:1/-1;">
-      <img src="images/couple1.jpg" alt="Together album">
+    <div class="album-card" onclick="openAlbum('coupleAlbum')">
+      <img src="images/couple1.jpg" alt="Together">
       <div class="album-info">
         <h3>Together</h3>
-        <p>MOMENTS OF TWO</p>
+        <p>Little moments of two</p>
       </div>
     </div>
 
@@ -1191,80 +1221,47 @@ footer p + p {
 
   <!-- KIM TUYEN ALBUM -->
 
-  <div id="kimtuyenAlbum" class="album-detail">
+  <div class="album-detail" id="kimtuyenAlbum">
 
-    <button class="back-button" onclick="backToAlbums()">← BACK TO ALBUMS</button>
+    <button class="back-button" onclick="backToAlbums()">← BACK TO GALLERY</button>
 
     <div class="album-heading">
       <h3>Kim Tuyến</h3>
-      <p>A collection of her beautiful moments</p>
+      <p>A little collection of her beautiful moments</p>
     </div>
 
-    <div class="gallery" id="kimtuyenPhotos">
+    <div class="gallery" id="kimtuyenPhotos"></div>
 
-      <div class="photo kimtuyen-photo">
-        <img src="images/kimtuyen1.jpg" alt="Kim Tuyến" onclick="openLightbox(this)">
-        <span class="photo-caption">A timeless elegance</span>
-      </div>
-
-      <div class="photo kimtuyen-photo">
-        <img src="images/kimtuyen2.jpg" alt="Kim Tuyến" onclick="openLightbox(this)">
-        <span class="photo-caption">Grace in every moment</span>
-      </div>
-
-    </div>
   </div>
 
   <!-- DONG ANH QUYNH ALBUM -->
 
-  <div id="daqAlbum" class="album-detail">
+  <div class="album-detail" id="daqAlbum">
 
-    <button class="back-button" onclick="backToAlbums()">← BACK TO ALBUMS</button>
+    <button class="back-button" onclick="backToAlbums()">← BACK TO GALLERY</button>
 
     <div class="album-heading">
       <h3>Đồng Ánh Quỳnh</h3>
-      <p>A collection of her beautiful moments</p>
+      <p>A little collection of her beautiful moments</p>
     </div>
 
-    <div class="gallery" id="daqPhotos">
+    <div class="gallery" id="daqPhotos"></div>
 
-      <div class="photo daq-photo">
-        <img src="images/daq1.jpg" alt="Đồng Ánh Quỳnh" onclick="openLightbox(this)">
-        <span class="photo-caption">A soul that shines</span>
-      </div>
-
-      <div class="photo daq-photo">
-        <img src="images/daq2.jpg" alt="Đồng Ánh Quỳnh" onclick="openLightbox(this)">
-        <span class="photo-caption">Born to captivate</span>
-      </div>
-
-    </div>
   </div>
 
   <!-- COUPLE ALBUM -->
 
-  <div id="coupleAlbum" class="album-detail">
+  <div class="album-detail" id="coupleAlbum">
 
-    <button class="back-button" onclick="backToAlbums()">← BACK TO ALBUMS</button>
+    <button class="back-button" onclick="backToAlbums()">← BACK TO GALLERY</button>
 
     <div class="album-heading">
       <h3>Together</h3>
-      <p>Moments worth keeping</p>
+      <p>Little moments of two</p>
     </div>
 
-    <div class="gallery" id="couplePhotos">
+    <div class="gallery" id="couplePhotos"></div>
 
-      <div class="photo couple-photo">
-        <img src="images/couple1.jpg" alt="Kim Tuyến and Đồng Ánh Quỳnh" onclick="openLightbox(this)">
-        <span class="photo-caption">Two hearts, one story</span>
-      </div>
-
-      <div class="photo couple-photo">
-        <img src="images/couple2.jpg" alt="Kim Tuyến and Đồng Ánh Quỳnh" onclick="openLightbox(this)">
-        <span class="photo-caption">Moments worth keeping</span>
-      </div>
-
-    </div>
   </div>
 
 </section>
@@ -1274,21 +1271,18 @@ footer p + p {
 <section id="journey" class="journey-section">
 
   <h2 class="section-title">Our Journey</h2>
-
-  <p class="section-subtitle">
-    Every date holds a memory, every moment becomes a story
-  </p>
+  <p class="section-subtitle">Every little moment becomes a memory</p>
 
   <div class="journey">
 
     <div class="journey-item">
       <div class="journey-date">27/07/2025</div>
       <div class="journey-content">
-        <h3>Lần đầu tiên</h3>
+        <h3>Lần đầu đến xem kịch</h3>
         <p>
-          Một trong những dấu mốc đầu tiên đáng nhớ:
-          Là lần đầu Đồng Ánh Quỳnh đến xem vở kịch do Kim Tuyến đóng.
-          Có lẽ lúc đó chẳng ai nghĩ rằng một lần gặp gỡ như thế lại mở ra nhiều điều đặc biệt sau này.
+          Một buổi diễn đặc biệt, khi Đồng Ánh Quỳnh lần đầu đến xem vở kịch
+          của Kim Tuyến. Một trong những dấu mốc nhỏ mở đầu cho những câu chuyện
+          đáng nhớ về sau.
         </p>
       </div>
     </div>
@@ -1296,10 +1290,11 @@ footer p + p {
     <div class="journey-item">
       <div class="journey-date">13/09/2025</div>
       <div class="journey-content">
-        <h3>Bữa ăn chay kéo dài 5 tiếng</h3>
+        <h3>Buổi ăn chay kéo dài 5 tiếng</h3>
         <p>
-          Ai ngờ một buổi ăn chay bình thường lại kéo dài đến tận 5 tiếng.
-          Có vẻ như hôm đó chẳng ai thiếu chuyện để kể cho người kia nghe.
+          Một cuộc hẹn tưởng chừng bình thường nhưng lại kéo dài suốt năm tiếng.
+          Có lẽ đôi khi, điều đáng nhớ nhất không nằm ở nơi ta đến,
+          mà ở người cùng ta ngồi lại.
         </p>
       </div>
     </div>
@@ -1307,14 +1302,10 @@ footer p + p {
     <div class="journey-item">
       <div class="journey-date">16/09/2025</div>
       <div class="journey-content">
-        <h3>"18 em rảnh không?"</h3>
+        <h3>“18 em rảnh không?”</h3>
         <p>
-          Cùng xuất hiện tại buổi công chiếu phim
-          <em>Tử Chiến Trên Không</em>. Một cuộc gặp gỡ và một câu hỏi:
-        </p>
-        <p><em>"18 em rảnh không?"</em></p>
-        <p>
-          Ai mà ngờ câu nói vu vơ ấy lại mở đầu cho một câu chuyện đặc biệt đến vậy
+          Cùng xuất hiện tại buổi ra mắt phim Tử Chiến Trên Không,
+          và một câu hỏi ngắn gọn đã trở thành điều mà mọi người nhớ mãi.
         </p>
       </div>
     </div>
@@ -1322,10 +1313,10 @@ footer p + p {
     <div class="journey-item">
       <div class="journey-date">18/09/2025</div>
       <div class="journey-content">
-        <h3>Giai thoại ở Bà Rịa</h3>
+        <h3>Câu chuyện Bà Rịa</h3>
         <p>
-          Lật lại những dấu mốc đã qua, Bà Rịa chắc chắn là cái tên không thể bỏ sót.
-          Một câu chuyện khá đặc biệt của hai người, và cũng là một phần đáng nhớ mà trong hành trình này nhất định phải có.
+          Thêm một mẩu chuyện nhỏ được cất giữ trong hành trình của hai người.
+          Những chi tiết giản dị đôi khi lại khiến người ta nhớ lâu hơn cả.
         </p>
       </div>
     </div>
@@ -1333,11 +1324,10 @@ footer p + p {
     <div class="journey-item">
       <div class="journey-date">29/09/2025</div>
       <div class="journey-content">
-        <h3>Một dấu mốc đặc biệt</h3>
+        <h3>Một dấu mốc đáng nhớ</h3>
         <p>
-          Hóa ra những lần gặp gỡ tưởng chừng bình thường trước đó đều đang dẫn đến ngày hôm ấy.
-          Và tại đây, mọi thứ chính thức có một cái tên riêng.
-          Ngày mà cả hai chính thức gọi nhau bằng một danh phận đặc biệt hơn.
+          Ngày đánh dấu một cột mốc trong câu chuyện của hai người,
+          cũng là ngày mở ra thêm nhiều điều để người hâm mộ cùng lưu giữ.
         </p>
       </div>
     </div>
@@ -1357,10 +1347,8 @@ footer p + p {
 
     <div class="journey-item">
       <div class="journey-date">16/11/2026</div>
-
       <div class="journey-content">
         <h3>A Question, An Answer</h3>
-
         <p>
           Sometimes, two little moments appear separately,
           yet seem to find their way into the same conversation.
@@ -1371,13 +1359,15 @@ footer p + p {
 
             <!-- DONG ANH QUYNH -->
             <div class="post-person">
-              <div class="post-person-name">ĐỒNG ÁNH QUỲNH</div>
-              <div class="post-caption-quote">“Nói đi, em tên gì?”</div>
-               <div class="post-caption-original">
-                <div class="post-caption-label">HER CURIOSITY</div>
-                <img src="images/couple36.jpg" alt="Original caption from Đồng Ánh Quỳnh" onclick="openLightbox(this)" loading="lazy">
+              <div class="post-person-name">HER CURIOSITY</div>
+              <div class="post-person-quote">“Nói đi, em tên gì?”</div>
+
+              <div class="post-caption-original">
+                <div class="post-caption-label">HER OWN WORDS</div>
+                <img src="images/couple36.jpg"
+                  alt="Original caption from Đồng Ánh Quỳnh"
+                  onclick="openLightbox(this)" loading="lazy">
               </div>
-            </div>
 
               <div class="post-photo-grid">
                 <div class="post-photo"><img src="images/couple25.jpg" alt="Đồng Ánh Quỳnh photo 1" onclick="openLightbox(this)" loading="lazy"></div>
@@ -1388,17 +1378,19 @@ footer p + p {
                 <div class="post-photo"><img src="images/couple30.jpg" alt="Đồng Ánh Quỳnh photo 6" onclick="openLightbox(this)" loading="lazy"></div>
                 <div class="post-photo"><img src="images/couple31.jpg" alt="Đồng Ánh Quỳnh photo 7" onclick="openLightbox(this)" loading="lazy"></div>
               </div>
+            </div>
 
-              
             <!-- KIM TUYEN -->
             <div class="post-person">
-              <div class="post-person-name">KIM TUYẾN</div>
-              <div class="post-caption-quote">“Nói rằng, em là của mình.”</div>
+              <div class="post-person-name">HER RESPONSE</div>
+              <div class="post-person-quote">“Nói rằng, em là của mình.”</div>
+
               <div class="post-caption-original">
-                <div class="post-caption-label">HER RESPONSE</div>
-                <img src="images/couple37.jpg" alt="Original caption from Kim Tuyến" onclick="openLightbox(this)" loading="lazy">
+                <div class="post-caption-label">HER OWN WORDS</div>
+                <img src="images/couple37.jpg"
+                  alt="Original caption from Kim Tuyến"
+                  onclick="openLightbox(this)" loading="lazy">
               </div>
-            </div>
 
               <div class="post-photo-grid">
                 <div class="post-photo"><img src="images/couple32.jpg" alt="Kim Tuyến photo 1" onclick="openLightbox(this)" loading="lazy"></div>
@@ -1406,8 +1398,8 @@ footer p + p {
                 <div class="post-photo"><img src="images/couple34.jpg" alt="Kim Tuyến photo 3" onclick="openLightbox(this)" loading="lazy"></div>
                 <div class="post-photo"><img src="images/couple35.jpg" alt="Kim Tuyến photo 4" onclick="openLightbox(this)" loading="lazy"></div>
               </div>
+            </div>
 
-             
           </div>
         </div>
 
@@ -2093,3 +2085,4 @@ musicPlayerClose.addEventListener("click", function() {
 </script>
 
 </body>
+</html>
