@@ -501,27 +501,46 @@ section {
   text-align:left;
 }
 
+.post-people-grid {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:18px;
+  align-items:start;
+}
+
 .post-person {
-  margin:30px 0;
+  min-width:0;
+  padding:14px;
+  border:1px solid rgba(128,100,72,.5);
+  background:rgba(255,255,255,.02);
 }
 
 .post-person-name {
   color:#e8c995;
-  font-size:14px;
-  letter-spacing:1.5px;
-  margin-bottom:14px;
+  font-size:13px;
+  letter-spacing:1px;
+  margin-bottom:12px;
   font-weight:500;
+}
+
+.post-caption-quote {
+  color:#f5e9d5;
+  font-size:14px;
+  font-style:italic;
+  line-height:1.8;
+  text-align:center;
+  padding:12px 5px 18px;
 }
 
 .post-photo-grid {
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px;
+  gap:8px;
 }
 
 .post-photo {
   min-width:0;
-  height:260px;
+  height:175px;
   overflow:hidden;
   border:1px solid rgba(128,100,72,.5);
   background:#171014;
@@ -536,13 +555,11 @@ section {
   transition:transform .4s ease;
 }
 
-.post-photo img:hover {
-  transform:scale(1.035);
-}
+.post-photo img:hover { transform:scale(1.035); }
 
 .post-caption-original {
-  margin-top:16px;
-  padding:15px;
+  margin-top:15px;
+  padding:10px;
   border:1px solid rgba(128,100,72,.5);
   background:rgba(255,255,255,.025);
   text-align:center;
@@ -551,8 +568,8 @@ section {
 .post-caption-original img {
   display:block;
   width:100%;
-  max-width:420px;
-  max-height:600px;
+  max-width:100%;
+  max-height:450px;
   object-fit:contain;
   margin:auto;
   cursor:pointer;
@@ -566,7 +583,7 @@ section {
 }
 
 .post-transition {
-  margin:35px 0;
+  margin:25px 0;
   text-align:center;
   color:#e8c995;
   font-size:15px;
@@ -575,7 +592,7 @@ section {
 }
 
 .post-story-ending {
-  margin-top:30px;
+  margin-top:25px;
   text-align:center;
   color:#c9b8a8;
   font-size:12px;
@@ -1004,9 +1021,9 @@ footer p + p {
   .journey-content h3 { font-size:15px; }
   .journey-content p { font-size:12px; }
 
-  .post-photo-grid {
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:8px;
+  .post-people-grid {
+    grid-template-columns:1fr;
+    gap:22px;
   }
 
   .post-photo {
@@ -1030,7 +1047,6 @@ footer p + p {
 }
 </style>
 </head>
-
 <body>
 
 <!-- WELCOME NOTE -->
@@ -1343,7 +1359,6 @@ footer p + p {
       <div class="journey-date">16/11/2026</div>
 
       <div class="journey-content">
-
         <h3>A Question, An Answer</h3>
 
         <p>
@@ -1352,110 +1367,53 @@ footer p + p {
         </p>
 
         <div class="post-story">
+          <div class="post-people-grid">
 
-          <!-- DONG ANH QUYNH -->
+            <!-- DONG ANH QUYNH -->
+            <div class="post-person">
+              <div class="post-person-name">01 — ĐỒNG ÁNH QUỲNH</div>
+              <div class="post-caption-quote">“Nói đi, em tên gì?”</div>
 
-          <div class="post-person">
-
-            <div class="post-person-name">01 — ĐỒNG ÁNH QUỲNH</div>
-
-            <div class="post-photo-grid">
-
-              <div class="post-photo">
-                <img src="images/couple25.jpg" alt="Đồng Ánh Quỳnh photo 1"
-                  onclick="openLightbox(this)" loading="lazy">
+              <div class="post-photo-grid">
+                <div class="post-photo"><img src="images/couple25.jpg" alt="Đồng Ánh Quỳnh photo 1" onclick="openLightbox(this)" loading="lazy"></div>
+                <div class="post-photo"><img src="images/couple26.jpg" alt="Đồng Ánh Quỳnh photo 2" onclick="openLightbox(this)" loading="lazy"></div>
+                <div class="post-photo"><img src="images/couple27.jpg" alt="Đồng Ánh Quỳnh photo 3" onclick="openLightbox(this)" loading="lazy"></div>
+                <div class="post-photo"><img src="images/couple28.jpg" alt="Đồng Ánh Quỳnh photo 4" onclick="openLightbox(this)" loading="lazy"></div>
+                <div class="post-photo"><img src="images/couple29.jpg" alt="Đồng Ánh Quỳnh photo 5" onclick="openLightbox(this)" loading="lazy"></div>
+                <div class="post-photo"><img src="images/couple30.jpg" alt="Đồng Ánh Quỳnh photo 6" onclick="openLightbox(this)" loading="lazy"></div>
+                <div class="post-photo"><img src="images/couple31.jpg" alt="Đồng Ánh Quỳnh photo 7" onclick="openLightbox(this)" loading="lazy"></div>
               </div>
 
-              <div class="post-photo">
-                <img src="images/couple26.jpg" alt="Đồng Ánh Quỳnh photo 2"
-                  onclick="openLightbox(this)" loading="lazy">
+              <div class="post-caption-original">
+                <div class="post-caption-label">ORIGINAL CAPTION</div>
+                <img src="images/couple36.jpg" alt="Original caption from Đồng Ánh Quỳnh" onclick="openLightbox(this)" loading="lazy">
               </div>
-
-              <div class="post-photo">
-                <img src="images/couple27.jpg" alt="Đồng Ánh Quỳnh photo 3"
-                  onclick="openLightbox(this)" loading="lazy">
-              </div>
-
-              <div class="post-photo">
-                <img src="images/couple28.jpg" alt="Đồng Ánh Quỳnh photo 4"
-                  onclick="openLightbox(this)" loading="lazy">
-              </div>
-
-              <div class="post-photo">
-                <img src="images/couple29.jpg" alt="Đồng Ánh Quỳnh photo 5"
-                  onclick="openLightbox(this)" loading="lazy">
-              </div>
-
-              <div class="post-photo">
-                <img src="images/couple30.jpg" alt="Đồng Ánh Quỳnh photo 6"
-                  onclick="openLightbox(this)" loading="lazy">
-              </div>
-
-              <div class="post-photo">
-                <img src="images/couple31.jpg" alt="Đồng Ánh Quỳnh photo 7"
-                  onclick="openLightbox(this)" loading="lazy">
-              </div>
-
             </div>
 
-            <div class="post-caption-original">
-              <div class="post-caption-label">ORIGINAL CAPTION</div>
-              <img src="images/couple36.jpg"
-                alt="Original caption from Đồng Ánh Quỳnh"
-                onclick="openLightbox(this)" loading="lazy">
+            <!-- KIM TUYEN -->
+            <div class="post-person">
+              <div class="post-person-name">02 — KIM TUYẾN</div>
+              <div class="post-caption-quote">“Nói rằng, em là của mình.”</div>
+
+              <div class="post-photo-grid">
+                <div class="post-photo"><img src="images/couple32.jpg" alt="Kim Tuyến photo 1" onclick="openLightbox(this)" loading="lazy"></div>
+                <div class="post-photo"><img src="images/couple33.jpg" alt="Kim Tuyến photo 2" onclick="openLightbox(this)" loading="lazy"></div>
+                <div class="post-photo"><img src="images/couple34.jpg" alt="Kim Tuyến photo 3" onclick="openLightbox(this)" loading="lazy"></div>
+                <div class="post-photo"><img src="images/couple35.jpg" alt="Kim Tuyến photo 4" onclick="openLightbox(this)" loading="lazy"></div>
+              </div>
+
+              <div class="post-caption-original">
+                <div class="post-caption-label">ORIGINAL CAPTION</div>
+                <img src="images/couple37.jpg" alt="Original caption from Kim Tuyến" onclick="openLightbox(this)" loading="lazy">
+              </div>
             </div>
 
           </div>
-
-          <div class="post-transition">
-            And then, the answer came...
-          </div>
-
-          <!-- KIM TUYEN -->
-
-          <div class="post-person">
-
-            <div class="post-person-name">02 — KIM TUYẾN</div>
-
-            <div class="post-photo-grid">
-
-              <div class="post-photo">
-                <img src="images/couple32.jpg" alt="Kim Tuyến photo 1"
-                  onclick="openLightbox(this)" loading="lazy">
-              </div>
-
-              <div class="post-photo">
-                <img src="images/couple33.jpg" alt="Kim Tuyến photo 2"
-                  onclick="openLightbox(this)" loading="lazy">
-              </div>
-
-              <div class="post-photo">
-                <img src="images/couple34.jpg" alt="Kim Tuyến photo 3"
-                  onclick="openLightbox(this)" loading="lazy">
-              </div>
-
-              <div class="post-photo">
-                <img src="images/couple35.jpg" alt="Kim Tuyến photo 4"
-                  onclick="openLightbox(this)" loading="lazy">
-              </div>
-
-            </div>
-
-            <div class="post-caption-original">
-              <div class="post-caption-label">ORIGINAL CAPTION</div>
-              <img src="images/couple37.jpg"
-                alt="Original caption from Kim Tuyến"
-                onclick="openLightbox(this)" loading="lazy">
-            </div>
-
-          </div>
-
         </div>
 
         <div class="post-story-ending">
           Two posts. Two captions. One little conversation worth remembering.
         </div>
-
       </div>
     </div>
 
@@ -2135,4 +2093,3 @@ musicPlayerClose.addEventListener("click", function() {
 </script>
 
 </body>
-</html>
