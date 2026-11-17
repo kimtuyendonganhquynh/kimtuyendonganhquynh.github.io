@@ -970,6 +970,277 @@ section {
   }
 }
 
+  /* A LITTLE PHOTOBOOTH */
+
+.photobooth-section {
+  background:
+    radial-gradient(ellipse at top,rgba(128,100,72,.12),transparent 65%),
+    #171014;
+}
+
+.booth-intro {
+  max-width:650px;
+  margin:0 auto 35px;
+  color:#d8c9bb;
+  font-size:13px;
+  line-height:2;
+}
+
+.booth-container {
+  max-width:900px;
+  margin:auto;
+  padding:30px;
+  border:1px solid rgba(128,100,72,.6);
+  background:linear-gradient(145deg,#261a21,#1b1318);
+}
+
+.booth-kicker {
+  color:#bca993;
+  font-size:9px;
+  letter-spacing:3px;
+  margin-bottom:12px;
+}
+
+.booth-mode-buttons,
+.booth-frame-options {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  margin:20px 0;
+}
+
+.booth-button {
+  padding:11px 20px;
+  border:1px solid #806448;
+  background:transparent;
+  color:#e8c995;
+  font-family:inherit;
+  font-size:10px;
+  letter-spacing:1px;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.booth-button:hover,
+.booth-button.active {
+  background:#e8c995;
+  color:#171014;
+  border-color:#e8c995;
+}
+
+.booth-mode-panel {
+  margin-top:25px;
+}
+
+.booth-camera {
+  position:relative;
+  width:100%;
+  max-width:620px;
+  margin:20px auto;
+  overflow:hidden;
+  background:#080608;
+  border:1px solid #806448;
+  aspect-ratio:4/3;
+}
+
+.booth-camera video {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  transform:scaleX(-1);
+}
+
+.booth-countdown {
+  position:absolute;
+  inset:0;
+  display:none;
+  justify-content:center;
+  align-items:center;
+  background:rgba(0,0,0,.25);
+  color:#fff4df;
+  font-size:clamp(70px,15vw,130px);
+  font-weight:500;
+  text-shadow:0 3px 25px rgba(0,0,0,.7);
+  z-index:3;
+}
+
+.booth-countdown.active {
+  display:flex;
+}
+
+.booth-flash {
+  position:absolute;
+  inset:0;
+  background:white;
+  opacity:0;
+  pointer-events:none;
+  z-index:4;
+}
+
+.booth-flash.active {
+  animation:boothFlash .35s ease;
+}
+
+@keyframes boothFlash {
+  0% { opacity:0; }
+  35% { opacity:1; }
+  100% { opacity:0; }
+}
+
+.booth-status {
+  min-height:30px;
+  margin:15px auto;
+  color:#c9b8a8;
+  font-size:12px;
+  line-height:1.8;
+}
+
+.booth-upload {
+  max-width:500px;
+  margin:25px auto;
+  padding:30px 20px;
+  border:1px dashed #806448;
+  background:rgba(255,255,255,.025);
+}
+
+.booth-upload input {
+  display:block;
+  width:100%;
+  margin-top:18px;
+  color:#c9b8a8;
+  font-family:inherit;
+  font-size:11px;
+}
+
+.booth-upload input::file-selector-button {
+  padding:9px 13px;
+  margin-right:10px;
+  border:1px solid #806448;
+  background:#e8c995;
+  color:#171014;
+  font-family:inherit;
+  cursor:pointer;
+}
+
+.booth-frames {
+  margin:35px auto;
+}
+
+.booth-frames-label {
+  color:#e8c995;
+  font-size:10px;
+  letter-spacing:2px;
+}
+
+.booth-photo-slots {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+  max-width:700px;
+  margin:25px auto;
+}
+
+.booth-slot {
+  min-width:0;
+  padding:8px;
+  border:1px solid rgba(128,100,72,.6);
+  background:#171014;
+}
+
+.booth-slot img {
+  display:block;
+  width:100%;
+  aspect-ratio:3/4;
+  object-fit:cover;
+  background:#2a2025;
+}
+
+.booth-slot-number {
+  margin:8px 0;
+  color:#e8c995;
+  font-size:10px;
+}
+
+.booth-slot button {
+  padding:6px 8px;
+  border:1px solid #806448;
+  background:transparent;
+  color:#c9b8a8;
+  font-family:inherit;
+  font-size:9px;
+  cursor:pointer;
+}
+
+.booth-slot button:hover {
+  color:#e8c995;
+  border-color:#e8c995;
+}
+
+.booth-result {
+  display:none;
+  margin:35px auto 0;
+  padding-top:30px;
+  border-top:1px solid rgba(128,100,72,.5);
+}
+
+.booth-result.active {
+  display:block;
+}
+
+.booth-result canvas {
+  display:block;
+  width:min(100%,320px);
+  height:auto;
+  margin:25px auto;
+  border:1px solid #806448;
+  box-shadow:0 12px 35px rgba(0,0,0,.4);
+}
+
+.booth-result-actions {
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:20px;
+}
+
+.booth-download {
+  background:#e8c995;
+  color:#171014;
+  border-color:#e8c995;
+}
+
+.booth-download:hover {
+  background:transparent;
+  color:#e8c995;
+}
+
+.booth-hidden {
+  display:none !important;
+}
+
+@media(max-width:600px) {
+  .booth-container {
+    padding:20px 12px;
+  }
+
+  .booth-photo-slots {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:10px;
+  }
+
+  .booth-button {
+    padding:10px 13px;
+    font-size:9px;
+  }
+
+  .booth-upload {
+    padding:22px 12px;
+  }
+}
+  
 /* FOOTER */
 
 footer {
@@ -1249,6 +1520,7 @@ footer p + p {
   <a href="#gallery">GALLERY</a>
   <a href="#journey">OUR JOURNEY</a>
   <a href="#video-moments">VIDEO MOMENTS</a>
+  <a href="#photobooth">PHOTOBOOTH</a>
   <a href="#fan-moments">FAN MOMENTS</a>
   <a href="#letters">LETTERS</a>
 </nav>
@@ -1642,6 +1914,189 @@ footer p + p {
   <p class="empty-note">
     Seven little moments, collected here with love. More memories will be added along the way.
   </p>
+
+</section>
+
+  <!-- A LITTLE PHOTOBOOTH -->
+
+<section id="photobooth" class="photobooth-section">
+
+  <h2 class="section-title">A Little Photobooth</h2>
+
+  <p class="section-subtitle">
+    Little moments, captured in our little world
+  </p>
+
+  <p class="booth-intro">
+    Step into our little photobooth.
+    Capture four moments, choose your favorite frame,
+    and keep a little memory to take home.
+  </p>
+
+  <div class="booth-container">
+
+    <div class="booth-kicker">A LITTLE MEMORY STUDIO ♡</div>
+
+    <h3 class="section-title" style="font-size:23px;">
+      Choose Your Booth
+    </h3>
+
+    <div class="booth-mode-buttons">
+      <button class="booth-button active" id="boothCameraMode" type="button">
+        CAMERA BOOTH
+      </button>
+
+      <button class="booth-button" id="boothUploadMode" type="button">
+        PHOTO UPLOAD
+      </button>
+    </div>
+
+    <!-- FRAME SELECTION -->
+
+    <div class="booth-frames">
+
+      <div class="booth-frames-label">CHOOSE YOUR PHOTO FRAME</div>
+
+      <div class="booth-frame-options">
+
+        <button class="booth-button active" data-booth-frame="world" type="button">
+          OUR LITTLE WORLD
+        </button>
+
+        <button class="booth-button" data-booth-frame="kimtuyen" type="button">
+          KIM TUYẾN
+        </button>
+
+        <button class="booth-button" data-booth-frame="daq" type="button">
+          ĐỒNG ÁNH QUỲNH
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- CAMERA MODE -->
+
+    <div class="booth-mode-panel" id="boothCameraPanel">
+
+      <div class="booth-camera">
+
+        <video id="boothVideo" autoplay muted playsinline></video>
+
+        <div class="booth-countdown" id="boothCountdown">10</div>
+
+        <div class="booth-flash" id="boothFlash"></div>
+
+      </div>
+
+      <p class="booth-status" id="boothCameraStatus">
+        Allow camera access to enter the photobooth.
+      </p>
+
+      <button class="booth-button" id="boothEnableCamera" type="button">
+        ENABLE CAMERA
+      </button>
+
+      <button class="booth-button booth-hidden" id="boothTakePhotos" type="button">
+        ♡ TAKE FOUR PHOTOS
+      </button>
+
+    </div>
+
+    <!-- UPLOAD MODE -->
+
+    <div class="booth-mode-panel booth-hidden" id="boothUploadPanel">
+
+      <div class="booth-upload">
+
+        <p style="color:#e8c995;font-size:13px;">
+          Bring your favorite moments here ♡
+        </p>
+
+        <p style="color:#bca993;font-size:11px;margin-top:8px;">
+          Select four photos from your device.
+        </p>
+
+        <input
+          type="file"
+          id="boothFileInput"
+          accept="image/*"
+          multiple
+        >
+
+      </div>
+
+      <p class="booth-status" id="boothUploadStatus">
+        Choose four photos to create your photobooth strip.
+      </p>
+
+    </div>
+
+    <!-- FOUR PHOTO SLOTS -->
+
+    <div class="booth-frames">
+
+      <div class="booth-frames-label">YOUR FOUR LITTLE MOMENTS</div>
+
+      <div class="booth-photo-slots" id="boothPhotoSlots">
+
+        <div class="booth-slot">
+          <img src="" alt="Photo 1" id="boothPreview1">
+          <div class="booth-slot-number">PHOTO 01</div>
+          <button type="button" data-retake="0" class="booth-hidden">RETAKE</button>
+        </div>
+
+        <div class="booth-slot">
+          <img src="" alt="Photo 2" id="boothPreview2">
+          <div class="booth-slot-number">PHOTO 02</div>
+          <button type="button" data-retake="1" class="booth-hidden">RETAKE</button>
+        </div>
+
+        <div class="booth-slot">
+          <img src="" alt="Photo 3" id="boothPreview3">
+          <div class="booth-slot-number">PHOTO 03</div>
+          <button type="button" data-retake="2" class="booth-hidden">RETAKE</button>
+        </div>
+
+        <div class="booth-slot">
+          <img src="" alt="Photo 4" id="boothPreview4">
+          <div class="booth-slot-number">PHOTO 04</div>
+          <button type="button" data-retake="3" class="booth-hidden">RETAKE</button>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- FINAL PHOTO STRIP -->
+
+    <div class="booth-result" id="boothResult">
+
+      <div class="booth-frames-label">
+        YOUR LITTLE PHOTO STRIP ♡
+      </div>
+
+      <canvas id="boothCanvas" width="600" height="1900"></canvas>
+
+      <div class="booth-result-actions">
+
+        <button class="booth-button booth-download" id="boothDownload" type="button">
+          DOWNLOAD PHOTO STRIP ↓
+        </button>
+
+        <button class="booth-button" id="boothRestart" type="button">
+          START AGAIN ↻
+        </button>
+
+      </div>
+
+    </div>
+
+    <p class="booth-status">
+      Made with love, kept as a little memory.
+    </p>
+
+  </div>
 
 </section>
 
@@ -2166,6 +2621,649 @@ document.addEventListener("keydown", function(event) {
   }
 
 });
+
+  /* A LITTLE PHOTOBOOTH */
+
+const boothVideo = document.getElementById("boothVideo");
+const boothCountdown = document.getElementById("boothCountdown");
+const boothFlash = document.getElementById("boothFlash");
+
+const boothCameraMode = document.getElementById("boothCameraMode");
+const boothUploadMode = document.getElementById("boothUploadMode");
+
+const boothCameraPanel = document.getElementById("boothCameraPanel");
+const boothUploadPanel = document.getElementById("boothUploadPanel");
+
+const boothEnableCamera = document.getElementById("boothEnableCamera");
+const boothTakePhotos = document.getElementById("boothTakePhotos");
+
+const boothCameraStatus = document.getElementById("boothCameraStatus");
+const boothUploadStatus = document.getElementById("boothUploadStatus");
+
+const boothFileInput = document.getElementById("boothFileInput");
+
+const boothCanvas = document.getElementById("boothCanvas");
+const boothContext = boothCanvas.getContext("2d");
+
+const boothResult = document.getElementById("boothResult");
+const boothDownload = document.getElementById("boothDownload");
+const boothRestart = document.getElementById("boothRestart");
+
+let boothStream = null;
+let boothPhotos = [null, null, null, null];
+let boothMode = "camera";
+let boothFrame = "world";
+let boothBusy = false;
+let boothRetakeIndex = null;
+
+const boothFrameStyles = {
+  world: {
+    background: "#21171c",
+    photoBackground: "#171014",
+    border: "#e8c995",
+    text: "#e8c995",
+    subtitle: "#d8c9bb",
+    title: "A LITTLE WORLD OF US",
+    footer: "LITTLE MOMENTS, FOREVER MEMORIES"
+  },
+
+  kimtuyen: {
+    background: "#f4e9d9",
+    photoBackground: "#e8d7c3",
+    border: "#8a304b",
+    text: "#8a304b",
+    subtitle: "#694650",
+    title: "KIM TUYẾN",
+    footer: "A BEAUTY OF HER OWN"
+  },
+
+  daq: {
+    background: "#24151d",
+    photoBackground: "#171014",
+    border: "#d7b6a0",
+    text: "#e8c995",
+    subtitle: "#d8c9bb",
+    title: "ĐỒNG ÁNH QUỲNH",
+    footer: "SIMPLY UNFORGETTABLE"
+  }
+};
+
+/* STOP CAMERA */
+
+function stopBoothCamera() {
+  if (boothStream) {
+    boothStream.getTracks().forEach(track => track.stop());
+    boothStream = null;
+  }
+
+  boothVideo.srcObject = null;
+}
+
+/* ENABLE CAMERA */
+
+async function enableBoothCamera() {
+
+  if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+    boothCameraStatus.textContent =
+      "Camera is unavailable. Please open this website using HTTPS in a supported browser.";
+    return;
+  }
+
+  try {
+
+    stopBoothCamera();
+
+    boothStream = await navigator.mediaDevices.getUserMedia({
+      video: {
+        facingMode: "user",
+        width: { ideal: 1280 },
+        height: { ideal: 960 }
+      },
+      audio: false
+    });
+
+    boothVideo.srcObject = boothStream;
+
+    await boothVideo.play();
+
+    boothCameraStatus.textContent =
+      "Your camera is ready. Get comfortable and smile ♡";
+
+    boothEnableCamera.classList.add("booth-hidden");
+    boothTakePhotos.classList.remove("booth-hidden");
+
+  } catch (error) {
+
+    boothCameraStatus.textContent =
+      "Unable to access the camera. Please allow camera permission and try again.";
+
+  }
+
+}
+
+boothEnableCamera.addEventListener("click", enableBoothCamera);
+
+/* SWITCH MODES */
+
+function switchBoothMode(mode) {
+
+  if (boothBusy) return;
+
+  boothMode = mode;
+
+  boothCameraMode.classList.toggle("active", mode === "camera");
+  boothUploadMode.classList.toggle("active", mode === "upload");
+
+  boothCameraPanel.classList.toggle("booth-hidden", mode !== "camera");
+  boothUploadPanel.classList.toggle("booth-hidden", mode !== "upload");
+
+  stopBoothCamera();
+
+}
+
+boothCameraMode.addEventListener("click", function() {
+  switchBoothMode("camera");
+});
+
+boothUploadMode.addEventListener("click", function() {
+  switchBoothMode("upload");
+});
+
+/* SELECT FRAME */
+
+document.querySelectorAll("[data-booth-frame]").forEach(button => {
+
+  button.addEventListener("click", function() {
+
+    if (boothBusy) return;
+
+    boothFrame = this.dataset.boothFrame;
+
+    document.querySelectorAll("[data-booth-frame]").forEach(item => {
+      item.classList.remove("active");
+    });
+
+    this.classList.add("active");
+
+    if (boothPhotos.every(Boolean)) {
+      renderBoothStrip();
+    }
+
+  });
+
+});
+
+/* COUNTDOWN */
+
+function boothWait(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
+}
+
+async function boothStartCountdown() {
+
+  boothCountdown.classList.add("active");
+
+  for (let number = 10; number >= 1; number--) {
+
+    boothCountdown.textContent = number;
+
+    await boothWait(1000);
+
+  }
+
+  boothCountdown.classList.remove("active");
+
+}
+
+/* FLASH EFFECT */
+
+async function boothShowFlash() {
+
+  boothFlash.classList.remove("active");
+
+  void boothFlash.offsetWidth;
+
+  boothFlash.classList.add("active");
+
+  await boothWait(350);
+
+  boothFlash.classList.remove("active");
+
+}
+
+/* CAPTURE ONE PHOTO */
+
+async function captureBoothPhoto(index) {
+
+  if (!boothVideo.videoWidth || !boothVideo.videoHeight) {
+    throw new Error("Camera is not ready.");
+  }
+
+  const photoCanvas = document.createElement("canvas");
+
+  photoCanvas.width = boothVideo.videoWidth;
+  photoCanvas.height = boothVideo.videoHeight;
+
+  const context = photoCanvas.getContext("2d");
+
+  // Mirror the image to match the selfie preview.
+  context.translate(photoCanvas.width, 0);
+  context.scale(-1, 1);
+
+  context.drawImage(
+    boothVideo,
+    0,
+    0,
+    photoCanvas.width,
+    photoCanvas.height
+  );
+
+  const image = new Image();
+
+  image.src = photoCanvas.toDataURL("image/jpeg", 0.92);
+
+  await new Promise((resolve, reject) => {
+    image.onload = resolve;
+    image.onerror = reject;
+  });
+
+  boothPhotos[index] = image;
+
+  updateBoothSlots();
+
+}
+
+/* UPDATE PHOTO SLOTS */
+
+function updateBoothSlots() {
+
+  boothPhotos.forEach((photo, index) => {
+
+    const preview = document.getElementById(
+      "boothPreview" + (index + 1)
+    );
+
+    const retakeButton = document.querySelector(
+      '[data-retake="' + index + '"]'
+    );
+
+    if (photo) {
+
+      preview.src = photo.src;
+
+      retakeButton.classList.remove("booth-hidden");
+
+    } else {
+
+      preview.removeAttribute("src");
+
+      retakeButton.classList.add("booth-hidden");
+
+    }
+
+  });
+
+  if (boothPhotos.every(Boolean)) {
+    renderBoothStrip();
+  } else {
+    boothResult.classList.remove("active");
+  }
+
+}
+
+/* TAKE FOUR PHOTOS */
+
+async function takeBoothPhotos() {
+
+  if (boothBusy || !boothStream) return;
+
+  boothBusy = true;
+
+  boothTakePhotos.disabled = true;
+
+  boothPhotos = [null, null, null, null];
+
+  updateBoothSlots();
+
+  boothResult.classList.remove("active");
+
+  try {
+
+    for (let index = 0; index < 4; index++) {
+
+      boothCameraStatus.textContent =
+        "Get ready for photo " + (index + 1) + " of 4 ♡";
+
+      await boothStartCountdown();
+
+      await boothShowFlash();
+
+      await captureBoothPhoto(index);
+
+      if (index < 3) {
+        boothCameraStatus.textContent =
+          "Photo " + (index + 1) + " captured! Get ready for the next one.";
+        await boothWait(1000);
+      }
+
+    }
+
+    boothCameraStatus.textContent =
+      "All four photos are ready. Your little memory is complete ♡";
+
+    boothResult.scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+
+  } catch (error) {
+
+    boothCameraStatus.textContent =
+      "Something went wrong. Please check your camera and try again.";
+
+  }
+
+  boothBusy = false;
+
+  boothTakePhotos.disabled = false;
+
+}
+
+boothTakePhotos.addEventListener("click", takeBoothPhotos);
+
+/* RETAKE ONE PHOTO */
+
+async function retakeBoothPhoto(index) {
+
+  if (boothBusy || boothMode !== "camera" || !boothStream) return;
+
+  boothBusy = true;
+
+  boothTakePhotos.disabled = true;
+
+  boothCameraStatus.textContent =
+    "Retaking photo " + (index + 1) + " ♡";
+
+  try {
+
+    await boothStartCountdown();
+
+    await boothShowFlash();
+
+    await captureBoothPhoto(index);
+
+    boothCameraStatus.textContent =
+      "Your photo has been updated ♡";
+
+  } catch (error) {
+
+    boothCameraStatus.textContent =
+      "Unable to retake this photo. Please try again.";
+
+  }
+
+  boothBusy = false;
+
+  boothTakePhotos.disabled = false;
+
+}
+
+document.querySelectorAll("[data-retake]").forEach(button => {
+
+  button.addEventListener("click", function() {
+    retakeBoothPhoto(Number(this.dataset.retake));
+  });
+
+});
+
+/* LOAD UPLOADED PHOTOS */
+
+function loadBoothImage(file) {
+
+  return new Promise((resolve, reject) => {
+
+    const reader = new FileReader();
+
+    reader.onload = function(event) {
+
+      const image = new Image();
+
+      image.onload = function() {
+        resolve(image);
+      };
+
+      image.onerror = reject;
+
+      image.src = event.target.result;
+
+    };
+
+    reader.onerror = reject;
+
+    reader.readAsDataURL(file);
+
+  });
+
+}
+
+boothFileInput.addEventListener("change", async function() {
+
+  const files = Array.from(this.files || []);
+
+  if (files.length !== 4) {
+
+    boothUploadStatus.textContent =
+      "Please select exactly four photos.";
+
+    this.value = "";
+
+    return;
+
+  }
+
+  if (!files.every(file => file.type.startsWith("image/"))) {
+
+    boothUploadStatus.textContent =
+      "Please choose image files only.";
+
+    this.value = "";
+
+    return;
+
+  }
+
+  boothUploadStatus.textContent =
+    "Preparing your four little moments...";
+
+  try {
+
+    boothPhotos = await Promise.all(
+      files.map(file => loadBoothImage(file))
+    );
+
+    updateBoothSlots();
+
+    boothUploadStatus.textContent =
+      "Your four photos are ready! Choose a frame and enjoy ♡";
+
+    boothResult.scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+
+  } catch (error) {
+
+    boothUploadStatus.textContent =
+      "Unable to load your photos. Please try again.";
+
+  }
+
+});
+
+/* DRAW CROPPED PHOTO */
+
+function drawBoothPhoto(context, image, x, y, width, height) {
+
+  const imageRatio = image.width / image.height;
+  const targetRatio = width / height;
+
+  let sourceX = 0;
+  let sourceY = 0;
+  let sourceWidth = image.width;
+  let sourceHeight = image.height;
+
+  if (imageRatio > targetRatio) {
+
+    sourceWidth = image.height * targetRatio;
+    sourceX = (image.width - sourceWidth) / 2;
+
+  } else {
+
+    sourceHeight = image.width / targetRatio;
+    sourceY = (image.height - sourceHeight) / 2;
+
+  }
+
+  context.drawImage(
+    image,
+    sourceX,
+    sourceY,
+    sourceWidth,
+    sourceHeight,
+    x,
+    y,
+    width,
+    height
+  );
+
+}
+
+/* CREATE PHOTO STRIP */
+
+function renderBoothStrip() {
+
+  if (!boothPhotos.every(Boolean)) return;
+
+  const style = boothFrameStyles[boothFrame];
+
+  const canvas = boothCanvas;
+  const context = boothContext;
+
+  canvas.width = 600;
+  canvas.height = 1900;
+
+  context.fillStyle = style.background;
+  context.fillRect(0, 0, canvas.width, canvas.height);
+
+  context.strokeStyle = style.border;
+  context.lineWidth = 3;
+  context.strokeRect(16, 16, 568, 1868);
+
+  context.textAlign = "center";
+
+  context.fillStyle = style.text;
+  context.font = "600 29px Georgia";
+  context.fillText(style.title, 300, 82);
+
+  context.fillStyle = style.subtitle;
+  context.font = "12px Arial";
+  context.fillText("A LITTLE PHOTOBOOTH EXPERIENCE", 300, 112);
+
+  const photoX = 55;
+  const photoWidth = 490;
+  const photoHeight = 365;
+  const gap = 17;
+  const startY = 150;
+
+  boothPhotos.forEach((photo, index) => {
+
+    const y = startY + index * (photoHeight + gap);
+
+    context.fillStyle = style.photoBackground;
+    context.fillRect(
+      photoX - 7,
+      y - 7,
+      photoWidth + 14,
+      photoHeight + 14
+    );
+
+    drawBoothPhoto(
+      context,
+      photo,
+      photoX,
+      y,
+      photoWidth,
+      photoHeight
+    );
+
+  });
+
+  context.fillStyle = style.text;
+  context.font = "600 18px Georgia";
+  context.fillText(style.footer, 300, 1775);
+
+  context.fillStyle = style.subtitle;
+  context.font = "12px Arial";
+
+  const date = new Date().toLocaleDateString("en-GB");
+
+  context.fillText(date, 300, 1810);
+
+  context.font = "11px Arial";
+  context.fillText("MADE WITH LOVE ♡", 300, 1848);
+
+  boothResult.classList.add("active");
+
+}
+
+/* DOWNLOAD PHOTO STRIP */
+
+boothDownload.addEventListener("click", function() {
+
+  if (!boothPhotos.every(Boolean)) return;
+
+  const link = document.createElement("a");
+
+  link.download = "A-Little-World-of-Us-Photobooth.png";
+  link.href = boothCanvas.toDataURL("image/png");
+
+  link.click();
+
+});
+
+/* START AGAIN */
+
+function resetBooth() {
+
+  if (boothBusy) return;
+
+  boothPhotos = [null, null, null, null];
+
+  updateBoothSlots();
+
+  boothFileInput.value = "";
+
+  boothCameraStatus.textContent =
+    boothStream
+      ? "Your camera is ready. Take four new photos ♡"
+      : "Allow camera access to enter the photobooth.";
+
+  boothUploadStatus.textContent =
+    "Choose four photos to create your photobooth strip.";
+
+  boothResult.classList.remove("active");
+
+  if (boothMode === "camera" && boothStream) {
+    boothTakePhotos.classList.remove("booth-hidden");
+  }
+
+}
+
+boothRestart.addEventListener("click", resetBooth);
+
+/* CLEAN UP CAMERA WHEN LEAVING THE PAGE */
+
+window.addEventListener("pagehide", stopBoothCamera);
   
 /* MUSIC PLAYER */
 
