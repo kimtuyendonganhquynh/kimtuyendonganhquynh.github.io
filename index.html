@@ -996,15 +996,16 @@ footer p + p {
   background:rgba(0,0,0,.96);
   justify-content:center;
   align-items:center;
-  padding:50px 20px;
+  padding:50px 60px;
 }
 
 .lightbox.active { display:flex; }
 
 .lightbox img {
-  max-width:92%;
+  max-width:85%;
   max-height:85vh;
   object-fit:contain;
+  transition:opacity .2s ease;
 }
 
 .lightbox-close {
@@ -1016,6 +1017,59 @@ footer p + p {
   border:none;
   font-size:40px;
   cursor:pointer;
+  z-index:3;
+}
+
+.lightbox-arrow {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:48px;
+  height:65px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:1px solid rgba(232,201,149,.5);
+  background:rgba(33,23,28,.65);
+  color:#e8c995;
+  font-size:38px;
+  font-family:inherit;
+  cursor:pointer;
+  transition:.3s;
+  z-index:3;
+}
+
+.lightbox-arrow:hover {
+  background:#e8c995;
+  color:#171014;
+}
+
+.lightbox-prev { left:20px; }
+.lightbox-next { right:20px; }
+
+@media (max-width:600px) {
+  .lightbox {
+    padding:45px 12px;
+  }
+
+  .lightbox img {
+    max-width:88%;
+    max-height:75vh;
+  }
+
+  .lightbox-arrow {
+    width:34px;
+    height:48px;
+    font-size:27px;
+  }
+
+  .lightbox-prev { left:5px; }
+  .lightbox-next { right:5px; }
+
+  .lightbox-close {
+    top:8px;
+    right:15px;
+  }
 }
 
 /* MOBILE */
@@ -1830,8 +1884,19 @@ footer p + p {
 <!-- LIGHTBOX -->
 
 <div class="lightbox" id="lightbox">
+
   <button class="lightbox-close" id="lightboxClose" aria-label="Close image">&times;</button>
+
+  <button class="lightbox-arrow lightbox-prev" id="lightboxPrev" type="button" aria-label="Previous image">
+    &#8249;
+  </button>
+
   <img id="lightboxImage" src="" alt="Enlarged photo">
+
+  <button class="lightbox-arrow lightbox-next" id="lightboxNext" type="button" aria-label="Next image">
+    &#8250;
+  </button>
+
 </div>
 
 <script>
@@ -1980,19 +2045,84 @@ function backToAlbums() {
 
 }
 
-/* LIGHTBOX */
+/* LIGHTBOX WITH ALBUM NAVIGATION */
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImage = document.getElementById("lightboxImage");
 const closeButton = document.getElementById("lightboxClose");
+const prevButton = document.getElementById("lightboxPrev");
+const nextButton = document.getElementById("lightboxNext");
+
+let lightboxImages = [];
+let currentImageIndex = 0;
+
+function showLightboxImage(index) {
+
+  if (!lightboxImages.length) return;
+
+  currentImageIndex =
+    (index + lightboxImages.length) % lightboxImages.length;
+
+  const img = lightboxImages[currentImageIndex];
+
+  lightboxImage.style.opacity = "0";
+
+  lightboxImage.src = img.src;
+  lightboxImage.alt = img.alt || "Gallery photo";
+
+  lightboxImage.onload = function() {
+    lightboxImage.style.opacity = "1";
+  };
+
+  const showArrows = lightboxImages.length > 1;
+
+  prevButton.style.display = showArrows ? "flex" : "none";
+  nextButton.style.display = showArrows ? "flex" : "none";
+
+}
 
 function openLightbox(img) {
 
-  lightboxImage.src = img.src;
-  lightboxImage.alt = img.alt;
+  // Find the image group containing the selected photo.
+  const group = img.closest(
+    ".album-detail, .gallery, .post-person, .fan-grid"
+  );
+
+  if (group) {
+
+    lightboxImages = Array.from(
+      group.querySelectorAll("img")
+    ).filter(image => image.getClientRects().length > 0);
+
+  } else {
+
+    lightboxImages = [img];
+
+  }
+
+  currentImageIndex = lightboxImages.indexOf(img);
+
+  if (currentImageIndex < 0) {
+    lightboxImages = [img];
+    currentImageIndex = 0;
+  }
+
+  showLightboxImage(currentImageIndex);
 
   lightbox.classList.add("active");
   document.body.style.overflow = "hidden";
+
+}
+
+function nextLightboxImage() {
+
+  showLightboxImage(currentImageIndex + 1);
+
+}
+
+function prevLightboxImage() {
+
+  showLightboxImage(currentImageIndex - 1);
 
 }
 
@@ -2001,7 +2131,15 @@ function closeLightbox() {
   lightbox.classList.remove("active");
   document.body.style.overflow = "";
 
+  lightboxImage.src = "";
+  lightboxImages = [];
+
 }
+
+nextButton.addEventListener("click", nextLightboxImage);
+prevButton.addEventListener("click", prevLightboxImage);
+
+closeButton.addEventListener("click", closeLightbox);
 
 lightbox.addEventListener("click", function(event) {
 
@@ -2011,16 +2149,24 @@ lightbox.addEventListener("click", function(event) {
 
 });
 
-closeButton.addEventListener("click", closeLightbox);
-
 document.addEventListener("keydown", function(event) {
+
+  if (!lightbox.classList.contains("active")) return;
 
   if (event.key === "Escape") {
     closeLightbox();
   }
 
-});
+  if (event.key === "ArrowRight") {
+    nextLightboxImage();
+  }
 
+  if (event.key === "ArrowLeft") {
+    prevLightboxImage();
+  }
+
+});
+  
 /* MUSIC PLAYER */
 
 const musicPlayer = document.getElementById("musicPlayer");
