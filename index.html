@@ -13,6 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
+  
 * {
   margin:0;
   padding:0;
@@ -2164,62 +2165,90 @@ musicPlayerClose.addEventListener("click", function() {
   musicPlayerToggle.setAttribute("aria-expanded", "false");
 
 });
-// JSONP callback must be globally accessible.
+/* AUTOMATIC FAN LETTERS FROM GOOGLE SHEETS */
+
+const FAN_LETTERS_API =
+  "https://script.google.com/macros/s/AKfycbxKQSnMF_De6FXVdhYyDANI87BqJjuZvz3173NnffLySZXwZqwX_zLVdJ5_hIaa2ehx/exec";
+
+const fanLettersList = document.getElementById("fanLettersList");
+const fanLettersStatus = document.getElementById("fanLettersStatus");
+
+let fanLettersLoaded = false;
+
+function showFanLetters(data) {
+  if (fanLettersLoaded) return;
+  fanLettersLoaded = true;
+
+  fanLettersList.innerHTML = "";
+
+  if (!Array.isArray(data) || data.length === 0) {
+    fanLettersStatus.textContent =
+      "No letters have been published yet. Be the first to leave a little note ♡";
+    return;
+  }
+
+  fanLettersStatus.textContent =
+    "Little words, endless affection ♡";
+
+  data.forEach(function(letter, index) {
+    const card = document.createElement("div");
+    card.className = "fan-letter";
+
+    const number = document.createElement("div");
+    number.className = "fan-letter-number";
+    number.textContent =
+      "A LITTLE LETTER · " + String(index + 1).padStart(2, "0");
+
+    const message = document.createElement("div");
+    message.className = "fan-letter-message";
+    message.textContent = letter.message || "";
+
+    const author = document.createElement("div");
+    author.className = "fan-letter-author";
+    author.textContent = "— " + (letter.name || "A fan");
+
+    const date = document.createElement("div");
+    date.className = "fan-letter-date";
+    date.textContent = letter.date || "";
+
+    card.appendChild(number);
+    card.appendChild(message);
+    card.appendChild(author);
+    card.appendChild(date);
+
+    fanLettersList.appendChild(card);
+  });
+}
+
 window.showFanLetters = showFanLetters;
 
 function loadFanLetters() {
-
   const script = document.createElement("script");
 
-  const callbackName = "showFanLetters";
-
-  script.src = FAN_LETTERS_API +
-    "?callback=" + callbackName +
-    "&t=" + Date.now();
+  script.src =
+    FAN_LETTERS_API + "?callback=showFanLetters&t=" + Date.now();
 
   script.async = true;
 
-  let finished = false;
-
   const timeout = setTimeout(function() {
+    if (fanLettersLoaded) return;
 
-    if (finished) return;
-
-    finished = true;
     script.remove();
 
     fanLettersStatus.textContent =
       "The letters are taking a little longer to arrive. Please refresh the page.";
-
   }, 15000);
 
   script.onerror = function() {
+    if (fanLettersLoaded) return;
 
-    if (finished) return;
-
-    finished = true;
     clearTimeout(timeout);
-    script.remove();
 
     fanLettersStatus.textContent =
       "Unable to connect to the letters collection. Please try again later.";
-
-  };
-
-  window.showFanLetters = function(data) {
-
-    if (finished) return;
-
-    finished = true;
-    clearTimeout(timeout);
-    script.remove();
-
-    showFanLetters(data);
-
   };
 
   document.body.appendChild(script);
-
 }
 
 loadFanLetters();
