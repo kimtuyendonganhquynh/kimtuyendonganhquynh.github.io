@@ -892,6 +892,82 @@ section {
   background:#e8c995;
   color:#171014;
 }
+  /* LIVE FAN LETTERS */
+
+.fan-letters-list {
+  max-width:850px;
+  margin:35px auto 0;
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:20px;
+  text-align:left;
+}
+
+.fan-letter {
+  position:relative;
+  padding:25px 22px;
+  border:1px solid rgba(128,100,72,.75);
+  background:linear-gradient(145deg,#261a21,#1b1318);
+  min-width:0;
+}
+
+.fan-letter::before {
+  content:"";
+  display:block;
+  width:35px;
+  height:1px;
+  background:#e8c995;
+  margin-bottom:18px;
+}
+
+.fan-letter-number {
+  color:#bca993;
+  font-size:9px;
+  letter-spacing:2px;
+}
+
+.fan-letter-message {
+  margin-top:14px;
+  color:#f5e9d5;
+  font-size:13px;
+  line-height:2;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
+}
+
+.fan-letter-author {
+  margin-top:18px;
+  color:#e8c995;
+  font-size:11px;
+  text-align:right;
+  overflow-wrap:anywhere;
+}
+
+.fan-letter-date {
+  margin-top:5px;
+  color:#927e70;
+  font-size:9px;
+  text-align:right;
+}
+
+.fan-letters-status {
+  max-width:650px;
+  margin:30px auto;
+  color:#bca993;
+  font-size:12px;
+  line-height:1.9;
+}
+
+@media (max-width:600px) {
+  .fan-letters-list {
+    grid-template-columns:1fr;
+    gap:14px;
+  }
+
+  .fan-letter {
+    padding:22px 18px;
+  }
+}
 
 /* FOOTER */
 
@@ -1600,30 +1676,37 @@ footer p + p {
 <section id="letters">
 
   <h2 class="section-title">Letters from Fans</h2>
-  <p class="section-subtitle">Little words, endless affection</p>
 
-  <div class="letter-card">
+  <p class="section-subtitle">
+    Little words, endless affection
+  </p>
+
+  <div class="intro" style="margin-bottom:30px;">
     <p>
-      "Thank you for bringing so much beauty and inspiration
-      into our lives. We will always be cheering for you."
+      Every little message carries a piece of love.
+      Here are the words shared by our lovely fans,
+      collected and kept in this little world.
     </p>
-    <span>— With love, a fan</span>
   </div>
 
-  <div class="letter-card">
-    <p>
-      "May your journey be filled with beautiful opportunities,
-      unforgettable memories and endless happiness."
-    </p>
-    <span>— Always supporting you</span>
+  <!-- AUTOMATIC FAN LETTERS -->
+
+  <div id="fanLettersStatus" class="fan-letters-status">
+    Gathering little words of love...
   </div>
 
-  <a href="https://forms.gle/uPp9XkVFNaRfFdao9"
+  <div id="fanLettersList" class="fan-letters-list"></div>
+
+  <a href="https://docs.google.com/forms/d/e/1FAIpQLSeoqDds9JBYrTAU0IWjHcd2Y8ZJI_UPRUuvE8ETAYk3lSWhLg/viewform"
      target="_blank"
      rel="noopener noreferrer"
      class="letter-button">
     SEND YOUR LETTER
   </a>
+
+  <p class="empty-note">
+    Your words may become a little part of our story.
+  </p>
 
 </section>
 
@@ -2081,7 +2164,65 @@ musicPlayerClose.addEventListener("click", function() {
   musicPlayerToggle.setAttribute("aria-expanded", "false");
 
 });
+// JSONP callback must be globally accessible.
+window.showFanLetters = showFanLetters;
 
+function loadFanLetters() {
+
+  const script = document.createElement("script");
+
+  const callbackName = "showFanLetters";
+
+  script.src = FAN_LETTERS_API +
+    "?callback=" + callbackName +
+    "&t=" + Date.now();
+
+  script.async = true;
+
+  let finished = false;
+
+  const timeout = setTimeout(function() {
+
+    if (finished) return;
+
+    finished = true;
+    script.remove();
+
+    fanLettersStatus.textContent =
+      "The letters are taking a little longer to arrive. Please refresh the page.";
+
+  }, 15000);
+
+  script.onerror = function() {
+
+    if (finished) return;
+
+    finished = true;
+    clearTimeout(timeout);
+    script.remove();
+
+    fanLettersStatus.textContent =
+      "Unable to connect to the letters collection. Please try again later.";
+
+  };
+
+  window.showFanLetters = function(data) {
+
+    if (finished) return;
+
+    finished = true;
+    clearTimeout(timeout);
+    script.remove();
+
+    showFanLetters(data);
+
+  };
+
+  document.body.appendChild(script);
+
+}
+
+loadFanLetters();
 </script>
 
 </body>
