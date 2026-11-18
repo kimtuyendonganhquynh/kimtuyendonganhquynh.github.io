@@ -970,7 +970,7 @@ section {
   }
 }
 
-  /* A LITTLE PHOTOBOOTH */
+ /* A LITTLE PHOTOBOOTH */
 
 .photobooth-section {
   background:
@@ -1136,15 +1136,15 @@ section {
 
 .booth-photo-slots {
   display:grid;
-  grid-template-columns:repeat(4,minmax(0,1fr));
-  gap:12px;
-  max-width:700px;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:15px;
+  max-width:500px;
   margin:25px auto;
 }
 
 .booth-slot {
   min-width:0;
-  padding:8px;
+  padding:10px;
   border:1px solid rgba(128,100,72,.6);
   background:#171014;
 }
@@ -1929,7 +1929,7 @@ footer p + p {
 
   <p class="booth-intro">
     Step into our little photobooth.
-    Capture four moments, choose your favorite frame,
+    Capture two moments together,
     and keep a little memory to take home.
   </p>
 
@@ -1938,10 +1938,11 @@ footer p + p {
     <div class="booth-kicker">A LITTLE MEMORY STUDIO ♡</div>
 
     <h3 class="section-title" style="font-size:23px;">
-      Choose Your Booth
+      Our Little Couple Booth
     </h3>
 
     <div class="booth-mode-buttons">
+
       <button class="booth-button active" id="boothCameraMode" type="button">
         CAMERA BOOTH
       </button>
@@ -1949,26 +1950,19 @@ footer p + p {
       <button class="booth-button" id="boothUploadMode" type="button">
         PHOTO UPLOAD
       </button>
+
     </div>
 
-    <!-- FRAME SELECTION -->
+    <!-- SINGLE COUPLE FRAME -->
 
     <div class="booth-frames">
 
-      <div class="booth-frames-label">CHOOSE YOUR PHOTO FRAME</div>
+      <div class="booth-frames-label">YOUR PHOTO FRAME</div>
 
       <div class="booth-frame-options">
 
-        <button class="booth-button active" data-booth-frame="world" type="button">
-          OUR LITTLE WORLD
-        </button>
-
-        <button class="booth-button" data-booth-frame="kimtuyen" type="button">
-          KIM TUYẾN
-        </button>
-
-        <button class="booth-button" data-booth-frame="daq" type="button">
-          ĐỒNG ÁNH QUỲNH
+        <button class="booth-button active" data-booth-frame="couple" type="button">
+          OUR LITTLE WORLD ♡
         </button>
 
       </div>
@@ -1998,7 +1992,7 @@ footer p + p {
       </button>
 
       <button class="booth-button booth-hidden" id="boothTakePhotos" type="button">
-        ♡ TAKE FOUR PHOTOS
+        ♡ TAKE TWO PHOTOS
       </button>
 
     </div>
@@ -2014,7 +2008,7 @@ footer p + p {
         </p>
 
         <p style="color:#bca993;font-size:11px;margin-top:8px;">
-          Select four photos from your device.
+          Select two photos from your device.
         </p>
 
         <input
@@ -2027,16 +2021,16 @@ footer p + p {
       </div>
 
       <p class="booth-status" id="boothUploadStatus">
-        Choose four photos to create your photobooth strip.
+        Choose two photos to create your photobooth strip.
       </p>
 
     </div>
 
-    <!-- FOUR PHOTO SLOTS -->
+    <!-- TWO PHOTO SLOTS -->
 
     <div class="booth-frames">
 
-      <div class="booth-frames-label">YOUR FOUR LITTLE MOMENTS</div>
+      <div class="booth-frames-label">YOUR TWO LITTLE MOMENTS</div>
 
       <div class="booth-photo-slots" id="boothPhotoSlots">
 
@@ -2052,18 +2046,6 @@ footer p + p {
           <button type="button" data-retake="1" class="booth-hidden">RETAKE</button>
         </div>
 
-        <div class="booth-slot">
-          <img src="" alt="Photo 3" id="boothPreview3">
-          <div class="booth-slot-number">PHOTO 03</div>
-          <button type="button" data-retake="2" class="booth-hidden">RETAKE</button>
-        </div>
-
-        <div class="booth-slot">
-          <img src="" alt="Photo 4" id="boothPreview4">
-          <div class="booth-slot-number">PHOTO 04</div>
-          <button type="button" data-retake="3" class="booth-hidden">RETAKE</button>
-        </div>
-
       </div>
 
     </div>
@@ -2076,7 +2058,7 @@ footer p + p {
         YOUR LITTLE PHOTO STRIP ♡
       </div>
 
-      <canvas id="boothCanvas" width="600" height="1900"></canvas>
+      <canvas id="boothCanvas" width="600" height="1100"></canvas>
 
       <div class="booth-result-actions">
 
@@ -2099,7 +2081,6 @@ footer p + p {
   </div>
 
 </section>
-
 <!-- OUR HEARTS -->
 
 <section id="fan-moments" class="fan-section">
@@ -2415,21 +2396,21 @@ addGalleryPhotos(
 addGalleryPhotos(
   "daqPhotos",
   [
-    "daq3.jpg",
-    "daq4.JPG",
+    "daq3.jpeg",
+    "daq4.jpeg",
     "daq5.JPG",
-    "daq6.jpg",
-    "daq7.JPG",
-    "daq8.jpg",
-    "daq9.JPG",
+    "daq6.JPG",
+    "daq7.jpg",
+    "daq8.JPG",
+    "daq9.jpg",
     "daq10.JPG",
     "daq11.JPG",
-    "daq12.JPG",
-    "daq13.JPG",
-    "daq14.JPG",
-    "daq15.JPG",
-    "daq16.JPG",
-    "daq17.JPG",
+    "daq12.JPEG",
+    "daq13.jpg",
+    "daq14.JPEG",
+    "daq15.JPEG",
+    "daq16.jpg",
+    "daq17.JPEG",
     "daq18.JPG"
   ],
   "daq-photo",
@@ -2622,7 +2603,7 @@ document.addEventListener("keydown", function(event) {
 
 });
 
-  /* A LITTLE PHOTOBOOTH */
+ /* A LITTLE PHOTOBOOTH */
 
 const boothVideo = document.getElementById("boothVideo");
 const boothCountdown = document.getElementById("boothCountdown");
@@ -2650,53 +2631,36 @@ const boothDownload = document.getElementById("boothDownload");
 const boothRestart = document.getElementById("boothRestart");
 
 let boothStream = null;
-let boothPhotos = [null, null, null, null];
+let boothPhotos = [null, null];
 let boothMode = "camera";
-let boothFrame = "world";
+let boothFrame = "couple";
 let boothBusy = false;
-let boothRetakeIndex = null;
+
+/* COUPLE FRAME */
 
 const boothFrameStyles = {
-  world: {
+  couple: {
     background: "#21171c",
     photoBackground: "#171014",
     border: "#e8c995",
     text: "#e8c995",
     subtitle: "#d8c9bb",
     title: "A LITTLE WORLD OF US",
-    footer: "LITTLE MOMENTS, FOREVER MEMORIES"
-  },
-
-  kimtuyen: {
-    background: "#f4e9d9",
-    photoBackground: "#e8d7c3",
-    border: "#8a304b",
-    text: "#8a304b",
-    subtitle: "#694650",
-    title: "KIM TUYẾN",
-    footer: "A BEAUTY OF HER OWN"
-  },
-
-  daq: {
-    background: "#24151d",
-    photoBackground: "#171014",
-    border: "#d7b6a0",
-    text: "#e8c995",
-    subtitle: "#d8c9bb",
-    title: "ĐỒNG ÁNH QUỲNH",
-    footer: "SIMPLY UNFORGETTABLE"
+    footer: "TWO MOMENTS, ONE LITTLE WORLD"
   }
 };
 
 /* STOP CAMERA */
 
 function stopBoothCamera() {
+
   if (boothStream) {
     boothStream.getTracks().forEach(track => track.stop());
     boothStream = null;
   }
 
   boothVideo.srcObject = null;
+
 }
 
 /* ENABLE CAMERA */
@@ -2759,6 +2723,13 @@ function switchBoothMode(mode) {
 
   stopBoothCamera();
 
+  if (mode === "camera") {
+    boothEnableCamera.classList.remove("booth-hidden");
+    boothTakePhotos.classList.add("booth-hidden");
+    boothCameraStatus.textContent =
+      "Allow camera access to enter the photobooth.";
+  }
+
 }
 
 boothCameraMode.addEventListener("click", function() {
@@ -2767,30 +2738,6 @@ boothCameraMode.addEventListener("click", function() {
 
 boothUploadMode.addEventListener("click", function() {
   switchBoothMode("upload");
-});
-
-/* SELECT FRAME */
-
-document.querySelectorAll("[data-booth-frame]").forEach(button => {
-
-  button.addEventListener("click", function() {
-
-    if (boothBusy) return;
-
-    boothFrame = this.dataset.boothFrame;
-
-    document.querySelectorAll("[data-booth-frame]").forEach(item => {
-      item.classList.remove("active");
-    });
-
-    this.classList.add("active");
-
-    if (boothPhotos.every(Boolean)) {
-      renderBoothStrip();
-    }
-
-  });
-
 });
 
 /* COUNTDOWN */
@@ -2846,7 +2793,6 @@ async function captureBoothPhoto(index) {
 
   const context = photoCanvas.getContext("2d");
 
-  // Mirror the image to match the selfie preview.
   context.translate(photoCanvas.width, 0);
   context.scale(-1, 1);
 
@@ -2890,13 +2836,11 @@ function updateBoothSlots() {
     if (photo) {
 
       preview.src = photo.src;
-
       retakeButton.classList.remove("booth-hidden");
 
     } else {
 
       preview.removeAttribute("src");
-
       retakeButton.classList.add("booth-hidden");
 
     }
@@ -2911,17 +2855,16 @@ function updateBoothSlots() {
 
 }
 
-/* TAKE FOUR PHOTOS */
+/* TAKE TWO PHOTOS */
 
 async function takeBoothPhotos() {
 
   if (boothBusy || !boothStream) return;
 
   boothBusy = true;
-
   boothTakePhotos.disabled = true;
 
-  boothPhotos = [null, null, null, null];
+  boothPhotos = [null, null];
 
   updateBoothSlots();
 
@@ -2929,10 +2872,10 @@ async function takeBoothPhotos() {
 
   try {
 
-    for (let index = 0; index < 4; index++) {
+    for (let index = 0; index < 2; index++) {
 
       boothCameraStatus.textContent =
-        "Get ready for photo " + (index + 1) + " of 4 ♡";
+        "Get ready for photo " + (index + 1) + " of 2 ♡";
 
       await boothStartCountdown();
 
@@ -2940,16 +2883,19 @@ async function takeBoothPhotos() {
 
       await captureBoothPhoto(index);
 
-      if (index < 3) {
+      if (index < 1) {
+
         boothCameraStatus.textContent =
-          "Photo " + (index + 1) + " captured! Get ready for the next one.";
+          "Photo 1 captured! Get ready for the final one ♡";
+
         await boothWait(1000);
+
       }
 
     }
 
     boothCameraStatus.textContent =
-      "All four photos are ready. Your little memory is complete ♡";
+      "Both photos are ready. Your little memory is complete ♡";
 
     boothResult.scrollIntoView({
       behavior:"smooth",
@@ -2964,7 +2910,6 @@ async function takeBoothPhotos() {
   }
 
   boothBusy = false;
-
   boothTakePhotos.disabled = false;
 
 }
@@ -2978,7 +2923,6 @@ async function retakeBoothPhoto(index) {
   if (boothBusy || boothMode !== "camera" || !boothStream) return;
 
   boothBusy = true;
-
   boothTakePhotos.disabled = true;
 
   boothCameraStatus.textContent =
@@ -3003,7 +2947,6 @@ async function retakeBoothPhoto(index) {
   }
 
   boothBusy = false;
-
   boothTakePhotos.disabled = false;
 
 }
@@ -3050,10 +2993,10 @@ boothFileInput.addEventListener("change", async function() {
 
   const files = Array.from(this.files || []);
 
-  if (files.length !== 4) {
+  if (files.length !== 2) {
 
     boothUploadStatus.textContent =
-      "Please select exactly four photos.";
+      "Please select exactly two photos.";
 
     this.value = "";
 
@@ -3073,7 +3016,7 @@ boothFileInput.addEventListener("change", async function() {
   }
 
   boothUploadStatus.textContent =
-    "Preparing your four little moments...";
+    "Preparing your two little moments...";
 
   try {
 
@@ -3084,7 +3027,7 @@ boothFileInput.addEventListener("change", async function() {
     updateBoothSlots();
 
     boothUploadStatus.textContent =
-      "Your four photos are ready! Choose a frame and enjoy ♡";
+      "Your two photos are ready! Your couple frame is waiting ♡";
 
     boothResult.scrollIntoView({
       behavior:"smooth",
@@ -3138,7 +3081,7 @@ function drawBoothPhoto(context, image, x, y, width, height) {
 
 }
 
-/* CREATE PHOTO STRIP */
+/* CREATE TWO-PHOTO STRIP */
 
 function renderBoothStrip() {
 
@@ -3150,14 +3093,14 @@ function renderBoothStrip() {
   const context = boothContext;
 
   canvas.width = 600;
-  canvas.height = 1900;
+  canvas.height = 1100;
 
   context.fillStyle = style.background;
   context.fillRect(0, 0, canvas.width, canvas.height);
 
   context.strokeStyle = style.border;
   context.lineWidth = 3;
-  context.strokeRect(16, 16, 568, 1868);
+  context.strokeRect(16, 16, 568, 1068);
 
   context.textAlign = "center";
 
@@ -3172,7 +3115,7 @@ function renderBoothStrip() {
   const photoX = 55;
   const photoWidth = 490;
   const photoHeight = 365;
-  const gap = 17;
+  const gap = 20;
   const startY = 150;
 
   boothPhotos.forEach((photo, index) => {
@@ -3200,17 +3143,17 @@ function renderBoothStrip() {
 
   context.fillStyle = style.text;
   context.font = "600 18px Georgia";
-  context.fillText(style.footer, 300, 1775);
+  context.fillText(style.footer, 300, 970);
 
   context.fillStyle = style.subtitle;
   context.font = "12px Arial";
 
   const date = new Date().toLocaleDateString("en-GB");
 
-  context.fillText(date, 300, 1810);
+  context.fillText(date, 300, 1000);
 
   context.font = "11px Arial";
-  context.fillText("MADE WITH LOVE ♡", 300, 1848);
+  context.fillText("MADE WITH LOVE ♡", 300, 1040);
 
   boothResult.classList.add("active");
 
@@ -3237,7 +3180,7 @@ function resetBooth() {
 
   if (boothBusy) return;
 
-  boothPhotos = [null, null, null, null];
+  boothPhotos = [null, null];
 
   updateBoothSlots();
 
@@ -3245,11 +3188,11 @@ function resetBooth() {
 
   boothCameraStatus.textContent =
     boothStream
-      ? "Your camera is ready. Take four new photos ♡"
+      ? "Your camera is ready. Take two new photos ♡"
       : "Allow camera access to enter the photobooth.";
 
   boothUploadStatus.textContent =
-    "Choose four photos to create your photobooth strip.";
+    "Choose two photos to create your photobooth strip.";
 
   boothResult.classList.remove("active");
 
