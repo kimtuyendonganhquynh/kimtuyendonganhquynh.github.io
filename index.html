@@ -916,7 +916,7 @@ section {
   animation:letterScroll 120s linear infinite;
 }
 
-.fan-letters-marquee:hover .fan-letter-track {
+.fan-letter-track.is-paused {
   animation-play-state: paused;
 }
 
@@ -3661,22 +3661,33 @@ function loadFanLetters() {
 
 loadFanLetters();
   
-// MOBILE TOUCH CONTROL
+// FAN LETTERS: DESKTOP + MOBILE CONTROL
 if (fanLettersMarquee && fanLettersTrack) {
 
+  // Desktop: pause when mouse enters
+  fanLettersMarquee.addEventListener("mouseenter", function() {
+    fanLettersTrack.classList.add("is-paused");
+  });
+
+  fanLettersMarquee.addEventListener("mouseleave", function() {
+    fanLettersTrack.classList.remove("is-paused");
+  });
+
+  // Mobile: pause while touching
   fanLettersMarquee.addEventListener("touchstart", function() {
-    fanLettersTrack.style.animationPlayState = "paused";
+    fanLettersTrack.classList.add("is-paused");
   }, { passive: true });
 
-  function resumeLetters() {
-    fanLettersTrack.style.animationPlayState = "";
+  // Resume immediately when finger is released
+  function resumeFanLetters() {
+    fanLettersTrack.classList.remove("is-paused");
   }
 
-  window.addEventListener("touchend", resumeLetters, {
+  window.addEventListener("touchend", resumeFanLetters, {
     passive: true
   });
 
-  window.addEventListener("touchcancel", resumeLetters, {
+  window.addEventListener("touchcancel", resumeFanLetters, {
     passive: true
   });
 }
