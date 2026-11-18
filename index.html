@@ -3673,8 +3673,8 @@ if (fanLettersMarquee && fanLettersTrack) {
   }
 
   function resumeLetters() {
-    fanLettersTrack.style.animationPlayState = "running";
-  }
+  fanLettersTrack.style.animationPlayState = "";
+}
 
   fanLettersMarquee.addEventListener("touchstart", pauseLetters, {
     passive: true
