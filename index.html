@@ -3668,19 +3668,17 @@ if (fanLettersMarquee && fanLettersTrack) {
     fanLettersTrack.style.animationPlayState = "paused";
   }, { passive: true });
 
-  function restartLetterAnimation() {
-    fanLettersTrack.style.animationPlayState = "running";
+  function resumeLetters() {
+    fanLettersTrack.style.animationPlayState = "";
   }
 
-  window.addEventListener("touchend", restartLetterAnimation, {
+  window.addEventListener("touchend", resumeLetters, {
     passive: true
   });
 
-  window.addEventListener("touchcancel", restartLetterAnimation, {
+  window.addEventListener("touchcancel", resumeLetters, {
     passive: true
   });
-
-  window.addEventListener("blur", restartLetterAnimation);
 }
 </script>
 
