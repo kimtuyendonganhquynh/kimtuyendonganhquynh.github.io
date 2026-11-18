@@ -920,10 +920,6 @@ section {
   animation-play-state: paused;
 }
 
-.fan-letter-track.paused {
-  animation-play-state: paused;
-}
-
 @keyframes letterScroll {
   from { transform:translateX(0); }
   to { transform:translateX(-50%); }
@@ -3665,23 +3661,26 @@ function loadFanLetters() {
 
 loadFanLetters();
   
-// MOBILE: PAUSE WHILE TOUCHING, RESUME WHEN RELEASED
+// MOBILE TOUCH CONTROL
 if (fanLettersMarquee && fanLettersTrack) {
 
-  function pauseLetters() {
+  fanLettersMarquee.addEventListener("touchstart", function() {
     fanLettersTrack.style.animationPlayState = "paused";
+  }, { passive: true });
+
+  function restartLetterAnimation() {
+    fanLettersTrack.style.animationPlayState = "running";
   }
 
-  function resumeLetters() {
-    fanLettersTrack.style.animationPlayState = "";
-  }
-
-  fanLettersMarquee.addEventListener("touchstart", pauseLetters, {
+  window.addEventListener("touchend", restartLetterAnimation, {
     passive: true
   });
 
-  document.addEventListener("touchend", resumeLetters);
-  document.addEventListener("touchcancel", resumeLetters);
+  window.addEventListener("touchcancel", restartLetterAnimation, {
+    passive: true
+  });
+
+  window.addEventListener("blur", restartLetterAnimation);
 }
 </script>
 
