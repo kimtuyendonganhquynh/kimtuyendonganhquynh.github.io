@@ -887,44 +887,16 @@ section {
   font-size:12px;
   line-height:1.9;
 }
-
-.fan-letters-marquee {
-  width:100%;
-  overflow:hidden;
-  margin:35px 0;
-  position:relative;
-  -webkit-mask-image:linear-gradient(
-    to right,
-    transparent,
-    black 8%,
-    black 92%,
-    transparent
-  );
-  mask-image:linear-gradient(
-    to right,
-    transparent,
-    black 8%,
-    black 92%,
-    transparent
-  );
+  
+.tap-love-text {
+  color: #bca993;
+  font-size: 12px;
+  font-style: italic;
+  letter-spacing: 2px;
+  text-align: center;
+  margin: 30px 0 35px;
 }
-
-.fan-letter-track {
-  display:flex;
-  width:max-content;
-  gap:18px;
-  animation:letterScroll 120s linear infinite;
-}
-
-.fan-letter-track.is-paused {
-  animation-play-state: paused;
-}
-
-@keyframes letterScroll {
-  from { transform:translateX(0); }
-  to { transform:translateX(-50%); }
-}
-
+  
 .marquee-letter {
   flex: 0 0 auto;
   width: fit-content;
@@ -2272,9 +2244,7 @@ footer p + p {
 
   <!-- HORIZONTAL LETTERS -->
 
-  <div class="fan-letters-marquee" id="fanLettersMarquee" hidden>
-    <div class="fan-letter-track" id="fanLettersTrack"></div>
-  </div>
+ <p class="tap-love-text">Tap to feel the love</p>
 
   <!-- LETTER FOLDER -->
 
@@ -3661,36 +3631,6 @@ function loadFanLetters() {
 
 loadFanLetters();
   
-// FAN LETTERS: DESKTOP + MOBILE CONTROL
-if (fanLettersMarquee && fanLettersTrack) {
-
-  // Desktop: pause when mouse enters
-  fanLettersMarquee.addEventListener("mouseenter", function() {
-    fanLettersTrack.classList.add("is-paused");
-  });
-
-  fanLettersMarquee.addEventListener("mouseleave", function() {
-    fanLettersTrack.classList.remove("is-paused");
-  });
-
-  // Mobile: pause while touching
-  fanLettersMarquee.addEventListener("touchstart", function() {
-    fanLettersTrack.classList.add("is-paused");
-  }, { passive: true });
-
-  // Resume immediately when finger is released
-  function resumeFanLetters() {
-    fanLettersTrack.classList.remove("is-paused");
-  }
-
-  window.addEventListener("touchend", resumeFanLetters, {
-    passive: true
-  });
-
-  window.addEventListener("touchcancel", resumeFanLetters, {
-    passive: true
-  });
-}
 </script>
 
 </body>
