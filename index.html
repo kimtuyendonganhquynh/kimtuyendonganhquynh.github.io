@@ -623,16 +623,21 @@ section {
   text-align:left;
 }
 
-.video-card iframe {
-  display:block;
-  width:100%;
-  aspect-ratio:9/16;
-  border:0;
-  background:#171014;
+.video-card video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  object-fit: cover;
+  background: #0b080a;
+  border-radius: 12px;
+}
+
+.video-card {
+  overflow: hidden;
 }
 
 .video-info {
-  padding:18px 20px 22px;
+  padding: 15px;
 }
 
 .video-info h3 {
@@ -1823,98 +1828,65 @@ footer p + p {
 <!-- VIDEO MOMENTS -->
 
 <section id="video-moments" class="video-section">
-
   <h2 class="section-title">Video Moments</h2>
-
   <p class="section-subtitle">
-    Little clips, beautiful memories, moments on repeat
+    Little scenes, unforgettable memories
   </p>
 
   <div class="video-grid">
 
     <div class="video-card">
-      <iframe src="https://www.tiktok.com/player/v1/7690790556141767954"
-        title="TikTok video moment 1" loading="lazy"
-        allow="fullscreen; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      <video controls playsinline preload="metadata">
+        <source src="videos/moment-01.mp4" type="video/mp4">
+      </video>
       <div class="video-info">
         <h3>Moment 01</h3>
-        <p>A little moment from @kimdongmoments</p>
-        <a class="video-link" href="https://www.tiktok.com/@kimdongmoments/video/7690790556141767954" target="_blank" rel="noopener noreferrer">WATCH ON TIKTOK ↗</a>
+        <p>A little moment to remember.</p>
       </div>
     </div>
 
     <div class="video-card">
-      <iframe src="https://www.tiktok.com/player/v1/7682421355555376392"
-        title="TikTok video moment 2" loading="lazy"
-        allow="fullscreen; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      <video controls playsinline preload="metadata">
+        <source src="videos/moment-02.mp4" type="video/mp4">
+      </video>
       <div class="video-info">
         <h3>Moment 02</h3>
-        <p>A little moment from @kimdongmoments</p>
-        <a class="video-link" href="https://www.tiktok.com/@kimdongmoments/video/7682421355555376392" target="_blank" rel="noopener noreferrer">WATCH ON TIKTOK ↗</a>
+        <p>Two people, countless little moments.</p>
       </div>
     </div>
 
     <div class="video-card">
-      <iframe src="https://www.tiktok.com/player/v1/7685365769101708551"
-        title="TikTok video moment 3" loading="lazy"
-        allow="fullscreen; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      <video controls playsinline preload="metadata">
+        <source src="videos/moment-03.mp4" type="video/mp4">
+      </video>
       <div class="video-info">
         <h3>Moment 03</h3>
-        <p>A little moment from @kimdongmoments</p>
-        <a class="video-link" href="https://www.tiktok.com/@kimdongmoments/video/7685365769101708551" target="_blank" rel="noopener noreferrer">WATCH ON TIKTOK ↗</a>
+        <p>A memory worth keeping.</p>
       </div>
     </div>
 
     <div class="video-card">
-      <iframe src="https://www.tiktok.com/player/v1/7676727558334876946"
-        title="TikTok video moment 4" loading="lazy"
-        allow="fullscreen; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      <video controls playsinline preload="metadata">
+        <source src="videos/moment-04.mp4" type="video/mp4">
+      </video>
       <div class="video-info">
         <h3>Moment 04</h3>
-        <p>A little moment from @kimdongmoments</p>
-        <a class="video-link" href="https://www.tiktok.com/@kimdongmoments/video/7676727558334876946" target="_blank" rel="noopener noreferrer">WATCH ON TIKTOK ↗</a>
+        <p>Some moments stay with us.</p>
       </div>
     </div>
 
     <div class="video-card">
-      <iframe src="https://www.tiktok.com/player/v1/7680059534357974279"
-        title="TikTok video moment 5" loading="lazy"
-        allow="fullscreen; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+      <video controls playsinline preload="metadata">
+        <source src="videos/moment-05.mov" type="video/quicktime">
+      </video>
       <div class="video-info">
         <h3>Moment 05</h3>
-        <p>A little moment from @kimdongmoments</p>
-        <a class="video-link" href="https://www.tiktok.com/@kimdongmoments/video/7680059534357974279" target="_blank" rel="noopener noreferrer">WATCH ON TIKTOK ↗</a>
+        <p>Little things, beautiful memories.</p>
       </div>
     </div>
 
-    <div class="video-card">
-      <iframe src="https://www.tiktok.com/player/v1/7706427589811768594"
-        title="TikTok video moment 6" loading="lazy"
-        allow="fullscreen; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-      <div class="video-info">
-        <h3>Moment 06</h3>
-        <p>A little moment from @kimdongmoments</p>
-        <a class="video-link" href="https://www.tiktok.com/@kimdongmoments/video/7706427589811768594" target="_blank" rel="noopener noreferrer">WATCH ON TIKTOK ↗</a>
-      </div>
-    </div>
-
-    <div class="video-card">
-      <iframe src="https://www.tiktok.com/player/v1/7671687538267999495"
-        title="TikTok video moment 7" loading="lazy"
-        allow="fullscreen; encrypted-media; picture-in-picture" allowfullscreen></iframe>
-      <div class="video-info">
-        <h3>Moment 07</h3>
-        <p>A little moment from @kimdongmoments</p>
-        <a class="video-link" href="https://www.tiktok.com/@kimdongmoments/video/7671687538267999495" target="_blank" rel="noopener noreferrer">WATCH ON TIKTOK ↗</a>
-      </div>
-    </div>
-
+    
   </div>
-
-  <p class="empty-note">
-    Seven little moments, collected here with love. More memories will be added along the way.
-  </p>
-
 </section>
 
   <!-- A LITTLE PHOTOBOOTH -->
