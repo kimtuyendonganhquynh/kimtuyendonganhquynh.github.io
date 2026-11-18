@@ -931,9 +931,9 @@ section {
 
 .marquee-letter {
   flex: 0 0 auto;
-  width: max-content;
-  max-width: 320px;
-  min-width: 180px;
+  width: fit-content;
+  max-width: none;
+  min-width: 0;
   box-sizing: border-box;
 
   padding: 18px 24px;
@@ -3665,22 +3665,31 @@ function loadFanLetters() {
 
 loadFanLetters();
   
-// PAUSE FAN LETTERS WHILE TOUCHING
+// MOBILE: PAUSE WHILE TOUCHING, RESUME WHEN RELEASED
 if (fanLettersMarquee && fanLettersTrack) {
 
-  fanLettersMarquee.addEventListener("pointerdown", function() {
-    fanLettersTrack.classList.add("paused");
-  });
-
-  function resumeFanLetters() {
-    fanLettersTrack.classList.remove("paused");
+  function pauseLetters() {
+    fanLettersTrack.style.animationPlayState = "paused";
   }
 
-  fanLettersMarquee.addEventListener("pointerup", resumeFanLetters);
-  fanLettersMarquee.addEventListener("pointercancel", resumeFanLetters);
+  function resumeLetters() {
+    fanLettersTrack.style.animationPlayState = "running";
+  }
 
-  document.addEventListener("pointerup", resumeFanLetters);
-  document.addEventListener("pointercancel", resumeFanLetters);
+  fanLettersMarquee.addEventListener("touchstart", pauseLetters, {
+    passive: true
+  });
+
+  document.addEventListener("touchend", resumeLetters);
+  document.addEventListener("touchcancel", resumeLetters);
+
+  document.addEventListener("visibilitychange", function() {
+    if (document.hidden) {
+      pauseLetters();
+    } else {
+      resumeLetters();
+    }
+  });
 }
 </script>
 
