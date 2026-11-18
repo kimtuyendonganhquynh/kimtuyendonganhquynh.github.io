@@ -913,7 +913,7 @@ section {
   display:flex;
   width:max-content;
   gap:18px;
-  animation:letterScroll 80s linear infinite;
+  animation:letterScroll 100s linear infinite;
 }
 
 .fan-letters-marquee:hover .fan-letter-track {
@@ -930,16 +930,11 @@ section {
 }
 
 .marquee-letter {
-  width:300px;
-  min-height:155px;
-  padding:22px;
-  flex-shrink:0;
-  display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  border:1px solid rgba(128,100,72,.75);
-  background:linear-gradient(145deg,#261a21,#1b1318);
-  text-align:left;
+  flex: 0 0 auto;
+  width: max-content;
+  max-width: 320px;
+  white-space: normal;
+  box-sizing: border-box;
 }
 
 .marquee-letter-message {
@@ -3661,10 +3656,18 @@ function loadFanLetters() {
 
 loadFanLetters();
   
-  // PAUSE FAN LETTERS WHEN TAPPED
+// PAUSE FAN LETTERS WHILE TOUCHING
 if (fanLettersMarquee && fanLettersTrack) {
-  fanLettersMarquee.addEventListener("click", function() {
-    fanLettersTrack.classList.toggle("paused");
+  fanLettersMarquee.addEventListener("touchstart", function() {
+    fanLettersTrack.classList.add("paused");
+  }, { passive: true });
+
+  fanLettersMarquee.addEventListener("touchend", function() {
+    fanLettersTrack.classList.remove("paused");
+  });
+
+  fanLettersMarquee.addEventListener("touchcancel", function() {
+    fanLettersTrack.classList.remove("paused");
   });
 }
 </script>
