@@ -861,28 +861,6 @@ section {
 
 /* LETTERS */
 
-.letter-card {
-  max-width:720px;
-  margin:22px auto;
-  padding:30px;
-  border:1px solid #806448;
-  background:rgba(255,255,255,.025);
-}
-
-.letter-card p {
-  color:#e0d2c3;
-  font-size:14px;
-  font-style:italic;
-  line-height:2;
-}
-
-.letter-card span {
-  display:block;
-  margin-top:15px;
-  color:#e8c995;
-  font-size:12px;
-}
-
 .letter-button {
   display:inline-block;
   margin-top:28px;
@@ -899,11 +877,133 @@ section {
   background:#e8c995;
   color:#171014;
 }
-  /* LIVE FAN LETTERS */
 
-.fan-letters-list {
+/* FAN LETTERS MARQUEE */
+
+.fan-letters-status {
+  max-width:650px;
+  margin:30px auto;
+  color:#bca993;
+  font-size:12px;
+  line-height:1.9;
+}
+
+.fan-letters-marquee {
+  width:100%;
+  overflow:hidden;
+  margin:35px 0;
+  position:relative;
+  -webkit-mask-image:linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+  mask-image:linear-gradient(
+    to right,
+    transparent,
+    black 8%,
+    black 92%,
+    transparent
+  );
+}
+
+.fan-letter-track {
+  display:flex;
+  width:max-content;
+  gap:18px;
+  animation:letterScroll 45s linear infinite;
+}
+
+.fan-letters-marquee:hover .fan-letter-track {
+  animation-play-state:paused;
+}
+
+@keyframes letterScroll {
+  from { transform:translateX(0); }
+  to { transform:translateX(-50%); }
+}
+
+.marquee-letter {
+  width:300px;
+  min-height:155px;
+  padding:22px;
+  flex-shrink:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  border:1px solid rgba(128,100,72,.75);
+  background:linear-gradient(145deg,#261a21,#1b1318);
+  text-align:left;
+}
+
+.marquee-letter-message {
+  color:#f5e9d5;
+  font-size:12px;
+  line-height:1.9;
+  font-style:italic;
+  overflow-wrap:anywhere;
+}
+
+.marquee-letter-author {
+  margin-top:15px;
+  color:#e8c995;
+  font-size:10px;
+  text-align:right;
+}
+
+/* LETTER FOLDER */
+
+.fan-letter-folder {
   max-width:850px;
   margin:35px auto 0;
+}
+
+.fan-folder-button {
+  width:100%;
+  padding:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  border:1px solid #806448;
+  background:linear-gradient(145deg,#261a21,#1b1318);
+  color:#e8c995;
+  cursor:pointer;
+  font-family:inherit;
+  font-size:11px;
+  letter-spacing:2px;
+  transition:all .3s;
+}
+
+.fan-folder-button:hover {
+  background:#30202a;
+  border-color:#e8c995;
+}
+
+.fan-folder-icon {
+  font-size:20px;
+}
+
+.fan-folder-arrow {
+  transition:transform .3s;
+}
+
+.fan-folder-button[aria-expanded="true"] .fan-folder-arrow {
+  transform:rotate(180deg);
+}
+
+.fan-folder-content {
+  display:none;
+  padding:25px 0 0;
+}
+
+.fan-folder-content.open {
+  display:block;
+}
+
+.fan-letters-list {
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
   gap:20px;
@@ -957,15 +1057,12 @@ section {
   text-align:right;
 }
 
-.fan-letters-status {
-  max-width:650px;
-  margin:30px auto;
-  color:#bca993;
-  font-size:12px;
-  line-height:1.9;
-}
-
 @media (max-width:600px) {
+  .marquee-letter {
+    width:260px;
+    min-height:145px;
+  }
+
   .fan-letters-list {
     grid-template-columns:1fr;
     gap:14px;
@@ -974,8 +1071,18 @@ section {
   .fan-letter {
     padding:22px 18px;
   }
+
+  .fan-folder-button {
+    padding:18px 12px;
+    font-size:10px;
+  }
 }
 
+@media (prefers-reduced-motion:reduce) {
+  .fan-letter-track {
+    animation:none;
+  }
+}
  /* A LITTLE PHOTOBOOTH */
 
 .photobooth-section {
@@ -1878,7 +1985,7 @@ footer p + p {
 
     <div class="video-card">
       <video controls playsinline preload="metadata">
-        <source src="videos/moment-05.mov" type="video/quicktime">
+        <source src="videos/moment-05.mp4" type="video/mp4">
       </video>
       <div class="video-info">
         <h3>Moment 05</h3>
@@ -2153,13 +2260,40 @@ footer p + p {
     </p>
   </div>
 
-  <!-- AUTOMATIC FAN LETTERS -->
+  <!-- LOADING STATUS -->
 
   <div id="fanLettersStatus" class="fan-letters-status">
     Gathering little words of love...
   </div>
 
-  <div id="fanLettersList" class="fan-letters-list"></div>
+  <!-- HORIZONTAL LETTERS -->
+
+  <div class="fan-letters-marquee" id="fanLettersMarquee" hidden>
+    <div class="fan-letter-track" id="fanLettersTrack"></div>
+  </div>
+
+  <!-- LETTER FOLDER -->
+
+  <div class="fan-letter-folder" id="fanLetterFolder" hidden>
+
+    <button
+      type="button"
+      class="fan-folder-button"
+      id="fanFolderButton"
+      aria-expanded="false"
+      aria-controls="fanFolderContent">
+
+      <span class="fan-folder-icon">✉</span>
+      <span>OPEN OUR LITTLE LETTERS</span>
+      <span class="fan-folder-arrow">⌄</span>
+
+    </button>
+
+    <div class="fan-folder-content" id="fanFolderContent">
+      <div id="fanLettersList" class="fan-letters-list"></div>
+    </div>
+
+  </div>
 
   <a href="https://docs.google.com/forms/d/e/1FAIpQLSeoqDds9JBYrTAU0IWjHcd2Y8ZJI_UPRUuvE8ETAYk3lSWhLg/viewform"
      target="_blank"
@@ -3332,57 +3466,161 @@ const FAN_LETTERS_API =
 
 const fanLettersList = document.getElementById("fanLettersList");
 const fanLettersStatus = document.getElementById("fanLettersStatus");
+const fanLettersTrack = document.getElementById("fanLettersTrack");
+const fanLettersMarquee = document.getElementById("fanLettersMarquee");
+
+const fanLetterFolder = document.getElementById("fanLetterFolder");
+const fanFolderButton = document.getElementById("fanFolderButton");
+const fanFolderContent = document.getElementById("fanFolderContent");
 
 let fanLettersLoaded = false;
 
+
+/* CREATE ONE LETTER CARD */
+
+function createFanLetter(letter, index) {
+
+  const card = document.createElement("div");
+  card.className = "fan-letter";
+
+  const number = document.createElement("div");
+  number.className = "fan-letter-number";
+  number.textContent =
+    "A LITTLE LETTER · " + String(index + 1).padStart(2, "0");
+
+  const message = document.createElement("div");
+  message.className = "fan-letter-message";
+  message.textContent = letter.message || "";
+
+  const author = document.createElement("div");
+  author.className = "fan-letter-author";
+  author.textContent = "— " + (letter.name || "A fan");
+
+  const date = document.createElement("div");
+  date.className = "fan-letter-date";
+  date.textContent = letter.date || "";
+
+  card.appendChild(number);
+  card.appendChild(message);
+  card.appendChild(author);
+  card.appendChild(date);
+
+  return card;
+}
+
+
+/* CREATE MARQUEE LETTER */
+
+function createMarqueeLetter(letter) {
+
+  const card = document.createElement("div");
+  card.className = "marquee-letter";
+
+  const message = document.createElement("div");
+  message.className = "marquee-letter-message";
+  message.textContent = "“" + (letter.message || "") + "”";
+
+  const author = document.createElement("div");
+  author.className = "marquee-letter-author";
+  author.textContent = "— " + (letter.name || "A fan");
+
+  card.appendChild(message);
+  card.appendChild(author);
+
+  return card;
+}
+
+
+/* DISPLAY APPROVED LETTERS */
+
 function showFanLetters(data) {
+
   if (fanLettersLoaded) return;
   fanLettersLoaded = true;
 
   fanLettersList.innerHTML = "";
+  fanLettersTrack.innerHTML = "";
 
   if (!Array.isArray(data) || data.length === 0) {
+
     fanLettersStatus.textContent =
       "No letters have been published yet. Be the first to leave a little note ♡";
+
+    fanLettersMarquee.hidden = true;
+    fanLetterFolder.hidden = true;
+
     return;
   }
 
   fanLettersStatus.textContent =
-    "Little words, endless affection ♡";
+    "A little love, travelling from one heart to another ♡";
+
+  fanLettersMarquee.hidden = false;
+  fanLetterFolder.hidden = false;
+
+  /* LETTERS INSIDE THE FOLDER */
 
   data.forEach(function(letter, index) {
-    const card = document.createElement("div");
-    card.className = "fan-letter";
 
-    const number = document.createElement("div");
-    number.className = "fan-letter-number";
-    number.textContent =
-      "A LITTLE LETTER · " + String(index + 1).padStart(2, "0");
-
-    const message = document.createElement("div");
-    message.className = "fan-letter-message";
-    message.textContent = letter.message || "";
-
-    const author = document.createElement("div");
-    author.className = "fan-letter-author";
-    author.textContent = "— " + (letter.name || "A fan");
-
-    const date = document.createElement("div");
-    date.className = "fan-letter-date";
-    date.textContent = letter.date || "";
-
-    card.appendChild(number);
-    card.appendChild(message);
-    card.appendChild(author);
-    card.appendChild(date);
-
+    const card = createFanLetter(letter, index);
     fanLettersList.appendChild(card);
+
   });
+
+
+  /* HORIZONTAL MARQUEE */
+
+  data.forEach(function(letter) {
+
+    const card = createMarqueeLetter(letter);
+    fanLettersTrack.appendChild(card);
+
+  });
+
+  /*
+    Duplicate the cards to create a continuous
+    horizontal scrolling effect.
+  */
+
+  if (data.length > 1) {
+
+    Array.from(fanLettersTrack.children).forEach(function(card) {
+
+      fanLettersTrack.appendChild(card.cloneNode(true));
+
+    });
+
+  }
+
 }
+
+
+/* OPEN / CLOSE LETTER FOLDER */
+
+fanFolderButton.addEventListener("click", function() {
+
+  const isOpen =
+    fanFolderButton.getAttribute("aria-expanded") === "true";
+
+  fanFolderButton.setAttribute(
+    "aria-expanded",
+    String(!isOpen)
+  );
+
+  fanFolderContent.classList.toggle("open", !isOpen);
+
+});
+
+
+/* GOOGLE SHEETS JSONP CALLBACK */
 
 window.showFanLetters = showFanLetters;
 
+
+/* LOAD LETTERS */
+
 function loadFanLetters() {
+
   const script = document.createElement("script");
 
   script.src =
@@ -3391,24 +3629,30 @@ function loadFanLetters() {
   script.async = true;
 
   const timeout = setTimeout(function() {
+
     if (fanLettersLoaded) return;
 
     script.remove();
 
     fanLettersStatus.textContent =
       "The letters are taking a little longer to arrive. Please refresh the page.";
+
   }, 15000);
 
+
   script.onerror = function() {
+
     if (fanLettersLoaded) return;
 
     clearTimeout(timeout);
 
     fanLettersStatus.textContent =
       "Unable to connect to the letters collection. Please try again later.";
+
   };
 
   document.body.appendChild(script);
+
 }
 
 loadFanLetters();
