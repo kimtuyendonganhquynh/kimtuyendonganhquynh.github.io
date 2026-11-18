@@ -897,38 +897,6 @@ section {
   margin: 30px 0 35px;
 }
   
-.marquee-letter {
-  flex: 0 0 auto;
-  width: fit-content;
-  max-width: 320px;
-  min-width: 180px;
-  box-sizing: border-box;
-
-  padding: 18px 24px;
-  border: 1px solid rgba(232, 201, 149, 0.45);
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.04);
-
-  white-space: normal;
-  overflow-wrap: anywhere;
-  text-align: center;
-}
-
-.marquee-letter-message {
-  color:#f5e9d5;
-  font-size:12px;
-  line-height:1.9;
-  font-style:italic;
-  overflow-wrap:anywhere;
-}
-
-.marquee-letter-author {
-  margin-top:15px;
-  color:#e8c995;
-  font-size:10px;
-  text-align:right;
-}
-
 /* LETTER FOLDER */
 
 .fan-letter-folder {
@@ -1034,12 +1002,7 @@ section {
 }
 
 @media (max-width:600px) {
-  .marquee-letter {
-    width:260px;
-    min-height:145px;
-  }
-
-  .fan-letters-list {
+   .fan-letters-list {
     grid-template-columns:1fr;
     gap:14px;
   }
@@ -2242,7 +2205,7 @@ footer p + p {
     Gathering little words of love...
   </div>
 
-  <!-- HORIZONTAL LETTERS -->
+  <!-- TAP TO FEEL THE LOVE -->
 
  <p class="tap-love-text">Tap to feel the love</p>
 
@@ -3440,8 +3403,6 @@ const FAN_LETTERS_API =
 
 const fanLettersList = document.getElementById("fanLettersList");
 const fanLettersStatus = document.getElementById("fanLettersStatus");
-const fanLettersTrack = document.getElementById("fanLettersTrack");
-const fanLettersMarquee = document.getElementById("fanLettersMarquee");
 
 const fanLetterFolder = document.getElementById("fanLetterFolder");
 const fanFolderButton = document.getElementById("fanFolderButton");
@@ -3459,6 +3420,7 @@ function createFanLetter(letter, index) {
 
   const number = document.createElement("div");
   number.className = "fan-letter-number";
+
   number.textContent =
     "A LITTLE LETTER · " + String(index + 1).padStart(2, "0");
 
@@ -3483,44 +3445,21 @@ function createFanLetter(letter, index) {
 }
 
 
-/* CREATE MARQUEE LETTER */
-
-function createMarqueeLetter(letter) {
-
-  const card = document.createElement("div");
-  card.className = "marquee-letter";
-
-  const message = document.createElement("div");
-  message.className = "marquee-letter-message";
-  message.textContent = "“" + (letter.message || "") + "”";
-
-  const author = document.createElement("div");
-  author.className = "marquee-letter-author";
-  author.textContent = "— " + (letter.name || "A fan");
-
-  card.appendChild(message);
-  card.appendChild(author);
-
-  return card;
-}
-
-
 /* DISPLAY APPROVED LETTERS */
 
 function showFanLetters(data) {
 
   if (fanLettersLoaded) return;
+
   fanLettersLoaded = true;
 
   fanLettersList.innerHTML = "";
-  fanLettersTrack.innerHTML = "";
 
   if (!Array.isArray(data) || data.length === 0) {
 
     fanLettersStatus.textContent =
       "No letters have been published yet. Be the first to leave a little note ♡";
 
-    fanLettersMarquee.hidden = true;
     fanLetterFolder.hidden = true;
 
     return;
@@ -3529,42 +3468,17 @@ function showFanLetters(data) {
   fanLettersStatus.textContent =
     "A little love, travelling from one heart to another ♡";
 
-  fanLettersMarquee.hidden = false;
   fanLetterFolder.hidden = false;
 
-  /* LETTERS INSIDE THE FOLDER */
+  /* ADD LETTERS TO THE FOLDER */
 
   data.forEach(function(letter, index) {
 
     const card = createFanLetter(letter, index);
+
     fanLettersList.appendChild(card);
 
   });
-
-
-  /* HORIZONTAL MARQUEE */
-
-  data.forEach(function(letter) {
-
-    const card = createMarqueeLetter(letter);
-    fanLettersTrack.appendChild(card);
-
-  });
-
-  /*
-    Duplicate the cards to create a continuous
-    horizontal scrolling effect.
-  */
-
-  if (data.length > 1) {
-
-    Array.from(fanLettersTrack.children).forEach(function(card) {
-
-      fanLettersTrack.appendChild(card.cloneNode(true));
-
-    });
-
-  }
 
 }
 
