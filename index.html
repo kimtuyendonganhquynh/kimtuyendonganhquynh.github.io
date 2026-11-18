@@ -3673,8 +3673,8 @@ if (fanLettersMarquee && fanLettersTrack) {
   }
 
   function resumeLetters() {
-  fanLettersTrack.style.animationPlayState = "";
-}
+    fanLettersTrack.style.animationPlayState = "";
+  }
 
   fanLettersMarquee.addEventListener("touchstart", pauseLetters, {
     passive: true
@@ -3682,14 +3682,6 @@ if (fanLettersMarquee && fanLettersTrack) {
 
   document.addEventListener("touchend", resumeLetters);
   document.addEventListener("touchcancel", resumeLetters);
-
-  document.addEventListener("visibilitychange", function() {
-    if (document.hidden) {
-      pauseLetters();
-    } else {
-      resumeLetters();
-    }
-  });
 }
 </script>
 
