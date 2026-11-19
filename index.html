@@ -2413,14 +2413,6 @@ function createFanLetter(letter, index) {
 function showFanLetters(data) {
 
   if (fanLettersLoaded) return;
-
-  fanLettersLoaded = true;
-  
- /* DISPLAY APPROVED LETTERS */
-
-function showFanLetters(data) {
-
-  if (fanLettersLoaded) return;
   fanLettersLoaded = true;
 
   if (!Array.isArray(data) || data.length === 0) {
@@ -2433,37 +2425,39 @@ function showFanLetters(data) {
   }
 
   // SORT LETTERS: OLDEST TO NEWEST
-  data.sort(function(a, b) {
-    function parseDate(dateString) {
-      const parts = dateString.split(" ");
-      const dateParts = parts[0].split("/");
-      const timeParts = (parts[1] || "00:00:00").split(":");
+  function parseDate(dateString) {
 
+    if (!dateString) return new Date(0);
+
+    const value = String(dateString).trim();
+
+    // Format: dd/mm/yyyy or dd/mm/yyyy hh:mm:ss
+    const vnDate = value.match(
+      /^(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2}):(\d{1,2})(?::(\d{1,2}))?)?$/
+    );
+
+    if (vnDate) {
       return new Date(
-        Number(dateParts[2]),
-        Number(dateParts[1]) - 1,
-        Number(dateParts[0]),
-        Number(timeParts[0]),
-        Number(timeParts[1]),
-        Number(timeParts[2])
+        Number(vnDate[3]),
+        Number(vnDate[2]) - 1,
+        Number(vnDate[1]),
+        Number(vnDate[4] || 0),
+        Number(vnDate[5] || 0),
+        Number(vnDate[6] || 0)
       );
     }
 
+    // Fallback for ISO date formats
+    const parsed = new Date(value);
+
+    return isNaN(parsed.getTime()) ? new Date(0) : parsed;
+  }
+
+  data.sort(function(a, b) {
     return parseDate(a.date) - parseDate(b.date);
   });
 
   fanLettersList.innerHTML = "";
-
-
-  if (!Array.isArray(data) || data.length === 0) {
-
-    fanLettersStatus.textContent =
-      "No letters have been published yet. Be the first to leave a little note ♡";
-
-    fanLetterFolder.hidden = true;
-
-    return;
-  }
 
   fanLettersStatus.textContent =
     "A little love, travelling from one heart to another ♡";
@@ -2481,7 +2475,6 @@ function showFanLetters(data) {
   });
 
 }
-
 
 /* OPEN / CLOSE LETTER FOLDER */
 
