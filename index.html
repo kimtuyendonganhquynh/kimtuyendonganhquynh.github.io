@@ -2065,6 +2065,21 @@ footer p + p {
 
   <img id="lightboxImage" src="" alt="Enlarged photo">
 
+  <!-- INSTAGRAM POST INFORMATION -->
+  <div class="lightbox-instagram-info" id="lightboxInstagramInfo">
+    <div class="lightbox-instagram-date" id="lightboxInstagramDate"></div>
+
+    <div class="lightbox-instagram-caption" id="lightboxInstagramCaption"></div>
+
+    <a class="lightbox-instagram-link"
+       id="lightboxInstagramLink"
+       href="#"
+       target="_blank"
+       rel="noopener noreferrer">
+      VIEW ORIGINAL POST ↗
+    </a>
+  </div>
+
   <button class="lightbox-arrow lightbox-next" id="lightboxNext" type="button" aria-label="Next image">
     &#8250;
   </button>
@@ -2285,7 +2300,30 @@ function openLightbox(img) {
   document.body.style.overflow = "hidden";
 
 }
+/* INSTAGRAM MOMENTS LIGHTBOX */
 
+function openInstagramLightbox(img) {
+
+  openLightbox(img);
+
+  const info = document.getElementById("lightboxInstagramInfo");
+  const date = document.getElementById("lightboxInstagramDate");
+  const caption = document.getElementById("lightboxInstagramCaption");
+  const link = document.getElementById("lightboxInstagramLink");
+
+  if (!info || !date || !caption || !link) {
+    console.log("Instagram lightbox information elements are missing.");
+    return;
+  }
+
+  date.textContent = img.dataset.date || "";
+  caption.textContent = img.dataset.caption || "";
+  link.href = img.dataset.link || "#";
+
+  info.classList.add("active");
+
+}
+  
 function nextLightboxImage() {
 
   showLightboxImage(currentImageIndex + 1);
