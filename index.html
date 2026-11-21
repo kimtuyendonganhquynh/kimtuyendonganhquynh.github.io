@@ -495,112 +495,6 @@ section {
   line-height:1.9;
 }
 
-/* A QUESTION, AN ANSWER */
-
-.post-story {
-  margin-top:25px;
-  text-align:left;
-}
-
-.post-people-grid {
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:25px;
-  align-items:start;
-}
-
-.post-person {
-  min-width:0;
-  margin:15px 0;
-  padding:20px;
-  border:1px solid rgba(128,100,72,.55);
-  background:rgba(255,255,255,.025);
-}
-
-.post-person-name {
-  color:#e8c995;
-  font-size:11px;
-  letter-spacing:2px;
-  font-weight:500;
-  text-align:center;
-  margin-bottom:15px;
-}
-
-.post-person-quote {
-  min-height:95px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  padding:15px 8px;
-  margin-bottom:18px;
-  color:#f5e9d5;
-  font-size:19px;
-  font-weight:300;
-  font-style:italic;
-  line-height:1.8;
-  text-align:center;
-  border-top:1px solid rgba(128,100,72,.4);
-  border-bottom:1px solid rgba(128,100,72,.4);
-}
-
-.post-caption-original {
-  margin-bottom:20px;
-  padding:13px;
-  border:1px solid rgba(128,100,72,.5);
-  background:rgba(255,255,255,.025);
-  text-align:center;
-}
-
-.post-caption-original img {
-  display:block;
-  width:100%;
-  max-width:420px;
-  max-height:600px;
-  object-fit:contain;
-  margin:auto;
-  cursor:pointer;
-}
-
-.post-caption-label {
-  color:#bca993;
-  font-size:9px;
-  letter-spacing:2px;
-  margin-bottom:12px;
-}
-
-.post-photo-grid {
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:9px;
-}
-
-.post-photo {
-  min-width:0;
-  height:210px;
-  overflow:hidden;
-  border:1px solid rgba(128,100,72,.5);
-  background:#171014;
-}
-
-.post-photo img {
-  display:block;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  cursor:pointer;
-  transition:transform .4s ease;
-}
-
-.post-photo img:hover { transform:scale(1.035); }
-
-.post-story-ending {
-  margin-top:30px;
-  text-align:center;
-  color:#c9b8a8;
-  font-size:12px;
-  font-style:italic;
-  line-height:2;
-}
 
 /* VIDEO MOMENTS */
 
@@ -1257,6 +1151,200 @@ footer p + p {
     bottom:12px;
   }
 }
+  /* INSTAGRAM MOMENTS */
+
+.instagram-section {
+  background:#1d1419;
+}
+
+.instagram-columns {
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:25px;
+  max-width:1100px;
+  margin:35px auto 0;
+  text-align:left;
+}
+
+.instagram-person {
+  padding:20px;
+  border:1px solid rgba(128,100,72,.55);
+  background:rgba(255,255,255,.02);
+  min-width:0;
+}
+
+.instagram-person-title {
+  margin-bottom:22px;
+  padding-bottom:13px;
+  border-bottom:1px solid #806448;
+  color:#e8c995;
+  font-size:13px;
+  font-weight:400;
+  letter-spacing:2px;
+  text-align:center;
+}
+
+.instagram-post-card {
+  margin-bottom:22px;
+  padding:13px;
+  border:1px solid rgba(128,100,72,.4);
+  background:#171014;
+}
+
+.instagram-post-cover {
+  display:block;
+  width:100%;
+  max-height:520px;
+  object-fit:cover;
+  cursor:pointer;
+  transition:opacity .3s;
+}
+
+.instagram-post-cover:hover {
+  opacity:.85;
+}
+
+.instagram-post-date {
+  margin-top:15px;
+  color:#bca993;
+  font-size:9px;
+  letter-spacing:1.5px;
+}
+
+.instagram-post-caption {
+  margin-top:10px;
+  color:#f5e9d5;
+  font-size:12px;
+  line-height:2;
+  overflow-wrap:anywhere;
+}
+
+.instagram-post-caption a {
+  color:#e8c995;
+  text-decoration:none;
+}
+
+.instagram-post-link {
+  display:inline-block;
+  margin-top:15px;
+  padding-bottom:4px;
+  border-bottom:1px solid #806448;
+  color:#e8c995;
+  font-size:9px;
+  letter-spacing:1.3px;
+  text-decoration:none;
+  transition:.3s;
+}
+
+.instagram-post-link:hover {
+  color:white;
+}
+
+.instagram-no-cover {
+  min-height:180px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-direction:column;
+  gap:8px;
+  border:1px dashed rgba(128,100,72,.6);
+  color:#bca993;
+  font-size:10px;
+  letter-spacing:1px;
+  text-align:center;
+}
+
+.instagram-no-cover span {
+  color:#e8c995;
+  font-size:28px;
+}
+
+/* INSTAGRAM LIGHTBOX DETAILS */
+
+.lightbox-instagram-info {
+  display:none;
+  width:min(650px,90%);
+  max-height:25vh;
+  overflow-y:auto;
+  margin-top:15px;
+  padding:15px 20px;
+  border:1px solid rgba(128,100,72,.6);
+  background:#171014;
+  text-align:center;
+}
+
+.lightbox-instagram-info.active {
+  display:block;
+}
+
+.lightbox-instagram-date {
+  color:#bca993;
+  font-size:10px;
+  letter-spacing:1.5px;
+}
+
+.lightbox-instagram-caption {
+  margin-top:8px;
+  color:#f5e9d5;
+  font-size:12px;
+  line-height:1.8;
+  overflow-wrap:anywhere;
+}
+
+.lightbox-instagram-link {
+  display:inline-block;
+  margin-top:12px;
+  color:#e8c995;
+  font-size:10px;
+  letter-spacing:1.3px;
+  text-decoration:none;
+  border-bottom:1px solid #806448;
+}
+
+@media (max-width:600px) {
+  .instagram-columns {
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:8px;
+  }
+
+  .instagram-person {
+    padding:8px;
+  }
+
+  .instagram-person-title {
+    font-size:9px;
+    letter-spacing:.7px;
+  }
+
+  .instagram-post-card {
+    padding:7px;
+  }
+
+  .instagram-post-date {
+    font-size:8px;
+    letter-spacing:.5px;
+  }
+
+  .instagram-post-caption {
+    font-size:10px;
+    line-height:1.8;
+  }
+
+  .instagram-post-link {
+    font-size:8px;
+    letter-spacing:.5px;
+  }
+
+  .instagram-no-cover {
+    min-height:120px;
+    font-size:8px;
+  }
+
+  .lightbox-instagram-info {
+    width:95%;
+    padding:12px;
+  }
+}
 </style>
 </head>
 
@@ -1301,6 +1389,7 @@ footer p + p {
   <a href="#home">HOME</a>
   <a href="#gallery">GALLERY</a>
   <a href="#journey">OUR JOURNEY</a>
+  <a href="#instagram">INSTAGRAM MOMENTS</a>
   <a href="#video-moments">VIDEO MOMENTS</a>
   <a href="#fan-moments">FAN MOMENTS</a>
   <a href="#letters">LETTERS</a>
@@ -1527,78 +1616,114 @@ footer p + p {
       </div>
     </div>
 
-    <!-- A QUESTION - AN ANSWER -->
+</section>
 
-    <div class="journey-item">
-      <div class="journey-date">16/11/2026</div>
-      <div class="journey-content">
-        <h3>A Question - An Answer</h3>
-        <p>
-          Sometimes, two little moments appear separately,
-          yet seem to find their way into the same conversation.
+ <!-- INSTAGRAM MOMENTS -->
+<section id="instagram" class="instagram-section">
+  <h2 class="section-title">Instagram Moments</h2>
+  <p class="section-subtitle">LITTLE POSTS, PRECIOUS WORDS</p>
+
+  <div class="instagram-columns">
+
+    <!-- ĐỒNG ÁNH QUỲNH -->
+    <div class="instagram-person">
+      <h3 class="instagram-person-title">ĐỒNG ÁNH QUỲNH</h3>
+
+      <article class="instagram-post-card">
+        <img
+          class="instagram-post-cover"
+          src="images/daq-2026-11-16.jpg"
+          alt="Đồng Ánh Quỳnh Instagram post"
+          loading="lazy"
+          onclick="openInstagramLightbox(this)"
+          data-date="16 NOVEMBER 2026"
+          data-caption="Nói đi, em tên gì? @kimtuyen2103 💕"
+          data-link="https://www.instagram.com/p/DfziSFjGjEH/"
+        >
+
+        <div class="instagram-post-date">16 NOVEMBER 2026</div>
+
+        <p class="instagram-post-caption">
+          Nói đi, em tên gì?
+          <a href="https://www.instagram.com/kimtuyen2103/" target="_blank" rel="noopener noreferrer">@kimtuyen2103</a>
+          💕
         </p>
 
-        <div class="post-story">
-          <div class="post-people-grid">
+        <a class="instagram-post-link"
+           href="https://www.instagram.com/p/DfziSFjGjEH/"
+           target="_blank"
+           rel="noopener noreferrer">
+          VIEW ORIGINAL POST ↗
+        </a>
+      </article>
+    </div>
 
-            <!-- DONG ANH QUYNH -->
-            <div class="post-person">
-              <div class="post-person-name">HER CURIOSITY</div>
-              <div class="post-person-quote">“Nói đi, em tên gì?”</div>
 
-              <div class="post-caption-original">
-                <div class="post-caption-label">HER OWN WORDS</div>
-                <img src="images/couple36.jpg"
-                  alt="Original caption from Đồng Ánh Quỳnh"
-                  onclick="openLightbox(this)" loading="lazy">
-              </div>
+    <!-- KIM TUYẾN -->
+    <div class="instagram-person">
+      <h3 class="instagram-person-title">KIM TUYẾN</h3>
 
-              <div class="post-photo-grid">
-                <div class="post-photo"><img src="images/couple25.jpg" alt="Đồng Ánh Quỳnh photo 1" onclick="openLightbox(this)" loading="lazy"></div>
-                <div class="post-photo"><img src="images/couple26.jpg" alt="Đồng Ánh Quỳnh photo 2" onclick="openLightbox(this)" loading="lazy"></div>
-                <div class="post-photo"><img src="images/couple27.jpg" alt="Đồng Ánh Quỳnh photo 3" onclick="openLightbox(this)" loading="lazy"></div>
-                <div class="post-photo"><img src="images/couple28.jpg" alt="Đồng Ánh Quỳnh photo 4" onclick="openLightbox(this)" loading="lazy"></div>
-                <div class="post-photo"><img src="images/couple29.jpg" alt="Đồng Ánh Quỳnh photo 5" onclick="openLightbox(this)" loading="lazy"></div>
-                <div class="post-photo"><img src="images/couple30.jpg" alt="Đồng Ánh Quỳnh photo 6" onclick="openLightbox(this)" loading="lazy"></div>
-                <div class="post-photo"><img src="images/couple31.jpg" alt="Đồng Ánh Quỳnh photo 7" onclick="openLightbox(this)" loading="lazy"></div>
-              </div>
-            </div>
+      <!-- POST 1: 16 NOVEMBER -->
+      <article class="instagram-post-card">
+        <img
+          class="instagram-post-cover"
+          src="images/kimtuyen-2026-11-16.jpg"
+          alt="Kim Tuyến Instagram post - 16 November"
+          loading="lazy"
+          onclick="openInstagramLightbox(this)"
+          data-date="16 NOVEMBER 2026"
+          data-caption="Nói rằng, em là của mình @donganhquynh 💕🐶🐱"
+          data-link="https://www.instagram.com/p/DfznrO3mXPA/"
+        >
 
-            <!-- KIM TUYEN -->
-            <div class="post-person">
-              <div class="post-person-name">HER RESPONSE</div>
-              <div class="post-person-quote">“Nói rằng, em là của mình.”</div>
+        <div class="instagram-post-date">16 NOVEMBER 2026</div>
 
-              <div class="post-caption-original">
-                <div class="post-caption-label">HER OWN WORDS</div>
-                <img src="images/couple37.jpg"
-                  alt="Original caption from Kim Tuyến"
-                  onclick="openLightbox(this)" loading="lazy">
-              </div>
+        <p class="instagram-post-caption">
+          Nói rằng, em là của mình
+          <a href="https://www.instagram.com/donganhquynh/" target="_blank" rel="noopener noreferrer">@donganhquynh</a>
+          💕🐶🐱
+        </p>
 
-              <div class="post-photo-grid">
-                <div class="post-photo"><img src="images/couple32.jpg" alt="Kim Tuyến photo 1" onclick="openLightbox(this)" loading="lazy"></div>
-                <div class="post-photo"><img src="images/couple33.jpg" alt="Kim Tuyến photo 2" onclick="openLightbox(this)" loading="lazy"></div>
-                <div class="post-photo"><img src="images/couple34.jpg" alt="Kim Tuyến photo 3" onclick="openLightbox(this)" loading="lazy"></div>
-                <div class="post-photo"><img src="images/couple35.jpg" alt="Kim Tuyến photo 4" onclick="openLightbox(this)" loading="lazy"></div>
-              </div>
-            </div>
+        <a class="instagram-post-link"
+           href="https://www.instagram.com/p/DfznrO3mXPA/"
+           target="_blank"
+           rel="noopener noreferrer">
+          VIEW ORIGINAL POST ↗
+        </a>
+      </article>
 
-          </div>
-        </div>
 
-        <div class="post-story-ending">
-          Two posts. Two captions. One little conversation worth remembering.
-        </div>
-      </div>
+      <!-- POST 2: 21 NOVEMBER -->
+      <article class="instagram-post-card">
+        <img
+          class="instagram-post-cover"
+          src="images/kimtuyen-2026-11-21.jpg"
+          alt="Kim Tuyến Instagram post - 21 November"
+          loading="lazy"
+          onclick="openInstagramLightbox(this)"
+          data-date="21 NOVEMBER 2026"
+          data-caption="Giữa vạn điều vô định, em mong tình mình là điều chắc chắn 💕🐶🐱 #KimTuyen #DongAnhQuynh"
+          data-link="https://www.instagram.com/p/DgAkgFGGVZx/"
+        >
+
+        <div class="instagram-post-date">21 NOVEMBER 2026</div>
+
+        <p class="instagram-post-caption">
+          Giữa vạn điều vô định, em mong tình mình là điều chắc chắn 💕🐶🐱
+          <a href="https://www.instagram.com/explore/tags/kimtuyen/" target="_blank" rel="noopener noreferrer">#KimTuyen</a>
+          <a href="https://www.instagram.com/explore/tags/donganhquynh/" target="_blank" rel="noopener noreferrer">#DongAnhQuynh</a>
+        </p>
+
+        <a class="instagram-post-link"
+           href="https://www.instagram.com/p/DgAkgFGGVZx/"
+           target="_blank"
+           rel="noopener noreferrer">
+          VIEW ORIGINAL POST ↗
+        </a>
+      </article>
     </div>
 
   </div>
-
-  <p class="empty-note">
-    More memories will find their place here, one day at a time.
-  </p>
-
 </section>
 
 <!-- VIDEO MOMENTS -->
